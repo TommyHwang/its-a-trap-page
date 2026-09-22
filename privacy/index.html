@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>개인정보 처리방침 — its-a-trap</title>
+<meta name="description" content="its-a-trap(발신 도메인 검사기) 크롬 확장의 개인정보 처리방침">
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <header class="doc">
+    <img src="/icon.png" alt="">
+    <div>
+      <div class="name">its-a-trap</div>
+      <div class="sub">발신 도메인 검사기 · Chrome 확장</div>
+    </div>
+  </header>
+
+  <h1>개인정보 처리방침</h1>
+  <p class="meta">시행일 2026-09-23 · 적용 버전 0.3.12 이상</p>
+
+  <p>its-a-trap은 Gmail·네이버 메일에서 열람 중인 메일의 발신자 도메인을 점검해
+  공공기관 사칭 등 피싱 위험을 표시하는 브라우저 확장입니다. 이 방침은 확장이
+  어떤 정보를 어디로 보내는지, 그리고 무엇을 보내지 않는지를 설명합니다.</p>
+
+  <h2><span class="no">1</span>자동으로 전송되는 정보: 발신자 도메인</h2>
+  <p>메일을 열 때 확장이 <b>자동으로</b> 밖으로 보내는 것은 발신자 이메일 주소의
+  <b>도메인 부분</b>(예: <code>kanc.re.kr</code>)뿐입니다. 도메인 검사를 위해 사용자
+  설정에 따라 아래 중 한 경로로 전송됩니다.</p>
+  <ul>
+    <li><b>검사 서버 사용(기본값)</b>: 본 확장의 검사 서버
+      (<code>its-a-trap-api-266l5o2dca-du.a.run.app</code>, Google Cloud Run)</li>
+    <li><b>검사 서버 사용 끔</b>: 공개 DNS 서비스 <code>dns.google</code>와 도메인
+      등록정보(RDAP) 서비스 <code>rdap.verisign.com</code> · <code>rdap.kisa.or.kr</code> ·
+      <code>rdap.org</code>에 브라우저가 직접 조회</li>
+  </ul>
+  <p>이때 이메일 주소의 앞부분(<code>@</code> 앞), 메일 본문, 제목, 첨부 파일,
+  수신자 정보, 계정 식별자는 전송되지 않습니다. 위험도 판정은 브라우저 안에서
+  이루어집니다.</p>
+
+  <h2><span class="no">2</span>사용자가 요청할 때만 전송되는 정보: 심화 분석</h2>
+  <p>판정 결과가 <b>주의</b>일 때 결과 창에 <b>심화 분석</b> 버튼이 나타납니다.
+  사용자가 이 버튼을 <b>직접 누른 경우에 한해</b>, 그 메일 한 통에 대해 아래
+  정보가 검사 서버로 한 번 전송됩니다.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>항목</th><th>용도</th></tr></thead>
+    <tbody>
+      <tr><td>발신자 이메일 주소, 표시 이름</td><td>기관 사칭 여부 대조</td></tr>
+      <tr><td>메일 본문 텍스트, 본문 속 링크 주소</td><td>사칭 수법(선입금·계좌 변경 등) 분석</td></tr>
+      <tr><td>답장 주소(Reply-To)</td><td>발신 주소와의 불일치 확인</td></tr>
+      <tr><td>메일 인증 결과(SPF·DKIM)</td><td>발신 위조 여부 확인</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>검사 서버는 분석을 위해 이 내용을 Google의 Gemini API(텍스트 임베딩·판정
+  모델)로 전달하고, 결과를 받아 확장에 돌려준 뒤 폐기합니다. 첨부 파일과 수신자
+  정보, 계정 식별자는 이 경우에도 전송하지 않습니다.</p>
+  <div class="note">버튼을 누르지 않으면 본문은 기기를 떠나지 않습니다. 팝업에서
+  “검사 서버 사용”을 끄면 심화 분석 자체가 비활성화됩니다.</div>
+
+  <h2><span class="no">3</span>저장과 보관</h2>
+  <ul>
+    <li>확장은 사용자 설정(검사 서버 사용 여부)만 브라우저에 저장합니다. 판정
+      결과나 열람 기록은 저장하지 않습니다.</li>
+    <li>검사 서버는 응답 속도를 위해 <b>도메인별 DNS 조회 결과를 최대 6시간</b>
+      캐시합니다. 캐시 키는 도메인 이름이며 특정 사용자와 연결되지 않습니다.</li>
+    <li>심화 분석으로 받은 본문·주소 등은 서버에 저장하지 않고, 로그에도 기록하지
+      않습니다.</li>
+    <li>검사 서버는 IP 주소 등 사용자를 식별하는 정보를 별도로 수집·보관하지
+      않습니다. 다만 인프라 제공자(Google Cloud)가 운영상 요청 기록을 남길 수
+      있습니다.</li>
+  </ul>
+
+  <h2><span class="no">4</span>판매·공유 금지</h2>
+  <p>어떤 정보도 판매하지 않으며, 광고·프로파일링·신용평가 목적으로 제3자에게
+  제공하지 않습니다. 확장의 단일 목적(피싱 메일 경고)과 무관한 용도로 사용하지
+  않습니다.</p>
+
+  <h2><span class="no">5</span>제3자 서비스</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>서비스</th><th>받는 정보</th><th>언제</th></tr></thead>
+    <tbody>
+      <tr><td>Google Public DNS (<code>dns.google</code>)</td><td>도메인 이름</td><td>검사 서버 사용을 끈 경우, 또는 검사 서버가 조회할 때</td></tr>
+      <tr><td>RDAP (Verisign · KISA · IANA)</td><td>도메인 이름</td><td>도메인 등록일 조회 시</td></tr>
+      <tr><td>Google Cloud Run</td><td>1·2항의 전송 내용</td><td>검사 서버 호스팅</td></tr>
+      <tr><td>Google Gemini API</td><td>2항의 심화 분석 내용</td><td>심화 분석 버튼을 누른 경우만</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>각 서비스에는 해당 제공자의 처리방침이 함께 적용됩니다.</p>
+
+  <h2><span class="no">6</span>사용자의 선택</h2>
+  <ul>
+    <li>팝업의 “검사 서버 사용”을 끄면 본 확장 서버로의 전송과 심화 분석이 모두
+      중지되고, 확장은 공개 DNS·RDAP에 직접 조회하는 방식으로 계속 동작합니다.</li>
+    <li>확장을 제거하면 모든 처리가 중지됩니다. 확장이 저장한 설정도 함께
+      삭제됩니다.</li>
+  </ul>
+
+  <h2><span class="no">7</span>변경</h2>
+  <p>전송 항목이나 경로가 바뀌면 이 페이지를 먼저 갱신하고 시행일을 고칩니다.</p>
+
+  <h2><span class="no">8</span>문의</h2>
+  <p><a href="mailto:htm2937@gmail.com">htm2937@gmail.com</a></p>
+
+  <footer><a href="/">its-a-trap</a></footer>
+</main>
+</body>
+</html>

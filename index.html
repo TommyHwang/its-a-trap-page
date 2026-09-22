@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>its-a-trap — 발신 도메인 검사기</title>
+<meta name="description" content="Gmail·네이버 메일에서 보낸 사람의 도메인을 점검해 공공기관 사칭 메일을 경고하는 크롬 확장">
+<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <header class="doc">
+    <img src="/icon.png" alt="">
+    <div>
+      <div class="name">its-a-trap</div>
+      <div class="sub">발신 도메인 검사기 · Chrome 확장</div>
+    </div>
+  </header>
+
+  <h1>공공기관 사칭 메일, 도메인에서 먼저 걸러냅니다</h1>
+  <p>Gmail·네이버 메일에서 메일을 열면 보낸 사람의 도메인을 자동으로 점검해
+  <b>위험 · 주의 · 확인</b>으로 표시합니다. 메일 화면은 건드리지 않고 우측 상단에
+  결과가 뜹니다.</p>
+  <ul>
+    <li>도메인이 등록된 지 얼마 안 됐는지</li>
+    <li>공식 기관 도메인과 비슷하게 생겼는지 (<code>kancsup.com</code> ↔ <code>kanc.re.kr</code>)</li>
+    <li>SPF·DMARC가 없어 위조가 가능한 도메인인지</li>
+    <li>답장 주소가 발신 주소와 다른지</li>
+  </ul>
+  <p>위험일 때는 기관의 공식 전화번호와 신고 창구(118 · 112 · 1394)를 함께 보여줍니다.</p>
+
+  <h2>문서</h2>
+  <ul>
+    <li><a href="/privacy">개인정보 처리방침</a></li>
+    <li>문의: <a href="mailto:htm2937@gmail.com">htm2937@gmail.com</a></li>
+  </ul>
+</main>
+</body>
+</html>
