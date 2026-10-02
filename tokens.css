@@ -1,0 +1,66 @@
+/* its-a-trap 페이지 토큰 — 확장의 "감정서" 토큰(its-a-trap/apps/extension/tokens.css)과 같은 값.
+ * 색·글꼴·간격은 모두 여기서만 정한다. style.css(처리방침·지원)와 home.css(첫 화면)가 같이 쓴다.
+ * 웹폰트는 받지 않는다 — 확장과 같은 시스템 산세리프 + 모노. */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Malgun Gothic", "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "D2Coding", "Cascadia Mono", Menlo, Consolas, monospace;
+
+  --paper: oklch(97% 0.008 85);
+  --paper-2: oklch(93% 0.01 85);
+  --ink: oklch(23% 0.014 260);
+  --ink-2: oklch(46% 0.012 260);
+  --rule: oklch(84% 0.01 85);
+  --rule-strong: oklch(70% 0.012 85);
+  --accent: oklch(34% 0.07 250);
+  --accent-hover: oklch(27% 0.07 250);
+  --focus: oklch(55% 0.14 250);
+  --danger: oklch(43% 0.16 27);
+  --danger-bg: oklch(95% 0.02 27);
+  --warn: oklch(50% 0.12 70);
+  --warn-bg: oklch(94% 0.03 80);
+  --ok: oklch(38% 0.09 152);
+  --on-accent: oklch(97% 0.008 85);
+  --shot-shadow: 0 6px 24px oklch(20% 0.02 260 / 0.12);
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --space-4xl: 7.5rem;
+
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-2xl: clamp(1.5rem, 1.2rem + 1.4vw, 2rem);
+  --text-display: clamp(2rem, 1.3rem + 3.2vw, 3.25rem);
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-short: 180ms;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: oklch(20% 0.012 260);
+    --paper-2: oklch(25% 0.014 260);
+    --ink: oklch(93% 0.008 85);
+    --ink-2: oklch(72% 0.01 85);
+    --rule: oklch(36% 0.014 260);
+    --rule-strong: oklch(48% 0.014 260);
+    --accent: oklch(78% 0.08 250);
+    --accent-hover: oklch(86% 0.07 250);
+    --focus: oklch(78% 0.12 250);
+    --danger: oklch(72% 0.15 27);
+    --danger-bg: oklch(28% 0.05 27);
+    --warn: oklch(80% 0.11 80);
+    --warn-bg: oklch(28% 0.04 80);
+    --ok: oklch(74% 0.1 150);
+    --on-accent: oklch(17% 0.012 260);
+    --shot-shadow: 0 6px 24px oklch(0% 0 0 / 0.4);
+  }
+}

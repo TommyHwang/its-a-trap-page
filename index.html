@@ -4,39 +4,219 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>its-a-trap — AI 사기 메일 검사기</title>
-<meta name="description" content="Gmail·네이버 메일에서 보낸 사람의 도메인을 점검해 공공기관 사칭 메일을 경고하는 크롬 확장">
+<title>its-a-trap | 메일을 열면 사칭 메일인지 근거로 알려 주는 크롬 확장</title>
+<meta name="description" content="Gmail과 네이버 메일에서 메일을 열면 보낸 도메인이 공식 기관 도메인인지, 언제 생겼는지 확인해 위험, 의심, 이상 없음으로 알려 줍니다. 판정과 신고는 무료이고 로그인이 필요 없습니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="its-a-trap | 메일을 열면 사칭 메일인지 근거로 알려 주는 크롬 확장">
+<meta property="og:description" content="Gmail과 네이버 메일에서 메일을 열면 보낸 도메인이 공식 기관 도메인인지, 언제 생겼는지 확인해 위험, 의심, 이상 없음으로 알려 줍니다. 판정과 신고는 무료이고 로그인이 필요 없습니다.">
+<meta property="og:image" content="https://its-a-trap-page.vercel.app/img/og.png">
+<meta property="og:locale" content="ko_KR">
 <link rel="icon" href="/favicon.png">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/tokens.css">
+<link rel="stylesheet" href="/home.css">
 </head>
 <body>
+
+<header class="nav">
+  <a class="wordmark" href="/"><img src="/icon.png" alt="" width="28" height="28">its-a-trap</a>
+  <a class="btn-line" href="https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk?utm_source=landing&amp;utm_medium=web&amp;utm_campaign=home">크롬에 추가</a>
+</header>
+
 <main>
-  <header class="doc">
-    <img src="/icon.png" alt="">
-    <div>
-      <div class="name">its-a-trap</div>
-      <div class="sub">AI 사기 메일 검사기 · Chrome 확장</div>
+
+  <!-- 1. 첫 화면 -->
+  <section class="split hero">
+    <div class="text">
+      <p class="lede-kicker">Gmail과 네이버 메일에서 쓰는 크롬 확장</p>
+      <h1>메일을 열면 보낸 곳이 진짜인지 먼저 봅니다</h1>
+      <p class="lede">공문, 조사 통지, 세금계산서, 견적 요청. 혼자 사업하면 이런 메일을 직접 열고 직접 판단합니다.</p>
+      <p class="lede">its-a-trap은 메일을 여는 순간 보낸 도메인이 그 기관의 공식 도메인인지, 언제 생겼는지 확인해서 화면 오른쪽 위에 알려 줍니다.</p>
+      <div class="cta">
+        <a class="btn" href="https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk?utm_source=landing&amp;utm_medium=web&amp;utm_campaign=home">크롬에 추가하기</a>
+        <a class="link" href="#privacy">무엇이 밖으로 나가는지 먼저 보기</a>
+      </div>
+      <p class="fine">판정과 신고는 무료입니다. 가입이나 로그인 없이 씁니다.<br>
+        PC 크롬으로 연 Gmail과 네이버 메일 웹 화면에서 동작합니다.</p>
     </div>
-  </header>
+    <figure class="proof">
+      <img src="/img/card-danger.webp" width="368" height="822"
+        alt="위험 판정 카드. 보낸 주소 rfp@kancsup.com, 기관 사칭 여부 위험(kanc.re.kr 이름을 품은 다른 도메인), 도메인 나이 위험, 본문 수법 위험, 한국나노기술원 대표번호 031-546-6000으로 확인하라는 안내, 신고·상담 118·112">
+      <figcaption>예시 화면입니다. 실제 사칭 메일을 재현했습니다.</figcaption>
+    </figure>
+  </section>
 
-  <h1>공공기관 사칭 메일, 도메인에서 먼저 걸러냅니다</h1>
-  <p>Gmail·네이버 메일에서 메일을 열면 보낸 사람의 도메인을 자동으로 점검해
-  <b>위험 · 주의 · 확인</b>으로 표시합니다. 메일 화면은 건드리지 않고 우측 상단에
-  결과가 뜹니다.</p>
-  <ul>
-    <li>도메인이 등록된 지 얼마 안 됐는지</li>
-    <li>공식 기관 도메인과 비슷하게 생겼는지 (<code>kancsup.com</code> ↔ <code>kanc.re.kr</code>)</li>
-    <li>SPF·DMARC가 없어 위조가 가능한 도메인인지</li>
-    <li>답장 주소가 발신 주소와 다른지</li>
-  </ul>
-  <p>위험일 때는 기관의 공식 전화번호와 신고 창구(118 · 112 · 1394)를 함께 보여줍니다.</p>
+  <!-- 2. 예시 -->
+  <section class="split flip">
+    <div class="text">
+      <h2>이름은 비슷했고, 도메인은 일주일 전에 생겼습니다</h2>
+      <p>이 확장을 만들게 된 메일입니다. 보낸 주소의 도메인은 <code>kancsup.com</code>이었습니다. 한국나노기술원의 공식 도메인은 <code>kanc.re.kr</code>입니다.</p>
+      <p>kanc를 그대로 품고 뒤에 sup을 붙인 다른 도메인이었고, 메일이 오기 7일 전에 등록됐습니다. 표시 이름과 소속, 전화번호는 실제 담당자를 흉내 냈습니다. 받는 사람 눈에는 평범한 제안요청서였습니다.</p>
+      <p class="closer">메일 내용은 얼마든지 꾸밀 수 있지만 도메인이 언제 생겼는지는 공개 기록으로 남습니다.</p>
+    </div>
+    <div class="proof">
+      <dl class="ledger" aria-label="카드에 나오는 것">
+        <div><dt>기관 사칭 여부</dt><dd><span class="stamp danger">위험</span>kanc.re.kr 이름을 품은 다른 도메인</dd></div>
+        <div><dt>도메인 나이</dt><dd><span class="stamp danger">위험</span>메일이 온 날 기준 등록 7일</dd></div>
+        <div><dt>본문 수법</dt><dd><span class="stamp danger">위험</span>"선입금" 같은 전형적 수법</dd></div>
+        <div><dt>확인 전화</dt><dd>메일에 적힌 번호 말고 한국나노기술원 대표번호 <b class="num">031-546-6000</b>에 직접 걸어 확인하세요</dd></div>
+        <div><dt>신고·상담</dt><dd><b class="num">118</b> <b class="num">112</b></dd></div>
+      </dl>
+    </div>
+  </section>
 
-  <h2>문서</h2>
-  <ul>
-    <li><a href="/privacy">개인정보 처리방침</a></li>
-    <li><a href="/support">지원·문의</a></li>
-    <li>문의: <a href="mailto:contact@ys-ware.com">contact@ys-ware.com</a></li>
-  </ul>
+  <!-- 3. 근거 -->
+  <section class="split">
+    <div class="text">
+      <h2>판정만 말하지 않고 근거를 보여 줍니다</h2>
+      <p>카드에는 검사한 항목이 한 줄씩 나옵니다. 어느 항목이 판정을 끌어올렸는지 막대로 보입니다. 판정만 믿지 말고 근거를 보고 직접 판단하세요.</p>
+      <ul class="checks">
+        <li><b>기관 사칭 여부.</b> 공공기관, 연구기관, 대학 등 90곳의 공식 도메인과 대조합니다.</li>
+        <li><b>도메인 나이.</b> 등록된 지 며칠 됐는지 보여 줍니다.</li>
+        <li><b>위조 방지 설정.</b> 누구나 그 주소를 흉내 내 보낼 수 있는 도메인인지 봅니다.</li>
+        <li><b>본문 수법.</b> 선입금, 대행구매 같은 요구와 위험한 형식의 첨부 파일 이름을 찾습니다.</li>
+        <li><b>사기 신고 이력.</b> 다른 사용자의 신고가 있는지 봅니다.</li>
+        <li><b>경찰청 사기 신고.</b> 의심이나 위험일 때만 보낸 사람 주소의 신고 이력을 조회합니다.</li>
+        <li><b>발신 인증과 답장 주소.</b> 답장이 다른 곳으로 가는지 봅니다. Gmail에서만 확인합니다.</li>
+      </ul>
+      <dl class="grades">
+        <div><dt><span class="stamp danger">위험</span></dt><dd>근거가 여러 개 겹칩니다. 닫을 때까지 카드가 남아 있고 신고·상담 번호를 함께 보여 줍니다.</dd></div>
+        <div><dt><span class="stamp warn">의심</span></dt><dd>이상한 점이 있습니다. 근거를 읽고 판단하세요.</dd></div>
+        <div><dt><span class="stamp ok">이상 없음</span></dt><dd>뚜렷한 이상 신호를 찾지 못했습니다. 안전하다는 보증은 아닙니다. 몇 초 뒤 사라집니다.</dd></div>
+      </dl>
+      <p>자주 연락하는 거래처는 믿는 발신자로 두세요. 그 주소로 온 메일에는 경고하지 않습니다. 주소를 위조한 흔적이 있으면 그래도 알립니다.</p>
+    </div>
+    <figure class="proof">
+      <img src="/img/card-warn.webp" width="368" height="655" loading="lazy"
+        alt="의심 판정 카드. 보낸 주소 minji.hong@gmail.com, 기관 사칭 여부 의심(기관을 언급만 함), 본문 수법 의심(계좌·연락처 관련 표현), 나머지 항목 이상 없음, 이 발신자 믿기 버튼">
+      <figcaption>의심 카드. 항목마다 무엇을 봤는지 나옵니다.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 4. 이런 메일 -->
+  <section class="split flip">
+    <div class="text">
+      <h2>기관과 보안 업체가 주의하라고 알린 메일들</h2>
+      <p>사업하는 사람이 받을 만한 메일과 연락입니다.</p>
+      <p class="closer">its-a-trap이 이 메일들을 모두 걸러 낸다는 뜻은 아닙니다. 이런 메일을 열었을 때 보낸 곳을 따져 볼 근거를 옆에 띄워 줍니다.</p>
+    </div>
+    <ol class="cases proof">
+      <li>
+        <h3>「[공정거래위원회] 전자상거래 위반행위 조사통지서」</h3>
+        <p>공정위는 조사 공문을 메일로 보내지 않는다고 밝혔습니다.</p>
+        <a class="src" href="https://www.etoday.co.kr/news/view/1775570" rel="noopener">이투데이, 2019-07-10</a>
+      </li>
+      <li>
+        <h3>「제품 광고에서 이미지와 콘텐츠 저작권 위반 신고」</h3>
+        <p>링크를 누르면 압축 파일을 내려받게 하는데, 그 안의 파일은 PDF처럼 보이는 실행 파일이었습니다.</p>
+        <a class="src" href="https://blog.alyac.co.kr/5467" rel="noopener">이스트시큐리티 알약, 2024-10-16</a>
+      </li>
+      <li>
+        <h3>한국저작권위원회를 사칭한 메일</h3>
+        <p>보낸 주소는 <code>koreacopyright.or.kr</code>이었습니다. 한국저작권위원회의 공식 도메인은 <code>copyright.or.kr</code>입니다.</p>
+        <a class="src" href="https://www.copyright.or.kr/notify/notice/view.do?brdctsno=53606" rel="noopener">한국저작권위원회 공지, 2024-11-27</a>
+      </li>
+      <li>
+        <h3>국세청을 사칭한 전자세금계산서 메일</h3>
+        <p>제목과 본문뿐 아니라 보낸 주소까지 국세청처럼 꾸몄습니다.</p>
+        <a class="src" href="https://www.threads.com/@nts.korea/post/DSTaDS-k0hf/" rel="noopener">국세청, 2025-12-15</a>
+      </li>
+      <li>
+        <h3>"시청 주무관"이라며 대량 주문을 한 뒤 대리구매와 선입금을 요구하는 연락</h3>
+        <p>서울시는 개인 휴대전화와 Gmail 같은 외부 메일을 쓰는 것을 공통점으로 꼽았습니다.</p>
+        <a class="src" href="https://www.news1.kr/local/moi/6052922" rel="noopener">뉴스1</a>
+      </li>
+    </ol>
+  </section>
+
+  <!-- 5. 나가는 정보 -->
+  <section class="split" id="privacy">
+    <div class="text">
+      <h2>무엇이 밖으로 나가는지</h2>
+      <p>판정은 브라우저 안에서 합니다. 밖으로 나가는 것은 아래 네 경우뿐입니다.</p>
+      <dl class="sends">
+        <div>
+          <dt>메일을 열 때마다</dt>
+          <dd><p>보낸 사람 주소에서 @ 뒤 도메인만 나갑니다. <code>kanc.re.kr</code> 같은 부분입니다. 도메인 등록일과 위조 방지 설정, 신고 이력을 확인하는 데 씁니다.</p>
+            <p>@ 앞부분, 제목, 본문, 첨부, 받는 사람 정보, 계정 정보는 보내지 않습니다.</p></dd>
+        </div>
+        <div>
+          <dt>의심이나 위험으로 판정됐을 때</dt>
+          <dd><p>보낸 사람의 이메일 주소를 검사 서버로 한 번 보냅니다. 메일이 스스로 밝힌 기관 이름이 있으면 그 이름도 같이 보냅니다.</p>
+            <p>서버는 경찰청 사이버범죄 신고시스템에서 사기 신고 이력을 조회하고, .kr 도메인이면 한국인터넷진흥원 후이즈에서 등록 정보를 확인합니다. 이때도 제목과 본문은 보내지 않습니다. 이상 없음이면 이 조회를 하지 않습니다.</p></dd>
+        </div>
+        <div>
+          <dt>신고 버튼을 누르고 동의했을 때</dt>
+          <dd><p>그 메일 한 통의 보낸 주소, 표시 이름, 제목, 본문이 저장되고 운영자가 직접 읽습니다. 본문의 전화번호와 계좌번호는 끝 4자리만 남기고, 주민등록번호는 모두 가립니다.</p>
+            <p>신고한 분과 받는 분의 메일 주소, 계정 정보, IP 주소는 저장하지 않습니다.</p></dd>
+        </div>
+        <div>
+          <dt>AI 상세 분석을 직접 눌렀을 때 (구독자만)</dt>
+          <dd><p>그 메일 한 통의 보낸 주소와 표시 이름, 제목, 본문, 본문 속 링크, 답장 주소, 인증 결과를 분석에 씁니다. 분석이 끝나면 본문은 저장하지 않고 버립니다.</p>
+            <p>구독이 없으면 버튼을 눌러도 안내만 나오고 아무것도 보내지 않습니다.</p></dd>
+        </div>
+      </dl>
+      <p>팝업에서 "검사 서버 사용"을 끄면 첫 번째 조회는 브라우저가 dns.google과 RDAP에 직접 합니다. 나머지 세 경우는 모두 멈춥니다.
+        어떤 정보도 팔거나 광고에 쓰지 않습니다.</p>
+      <p><a class="link" href="/privacy">개인정보 처리방침 전문 보기</a></p>
+    </div>
+    <figure class="proof">
+      <img src="/img/popup-privacy.webp" width="336" height="493" loading="lazy"
+        alt="확장 팝업의 보내는 정보 탭. 항상: 보낸 사람의 도메인, 의심·위험: 보낸 사람의 주소, 누를 때만: 메일 본문">
+      <figcaption>같은 내용을 팝업의 "보내는 정보" 탭에서도 볼 수 있습니다.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 6·7. 설치와 한계 -->
+  <section class="split pair">
+    <div class="text">
+      <h2>설치 방법</h2>
+      <ol class="steps">
+        <li>아래 버튼을 눌러 크롬 웹스토어에서 "Chrome에 추가"를 누릅니다.</li>
+        <li>열어 둔 Gmail이나 네이버 메일 탭을 새로고침합니다.</li>
+        <li>메일을 하나 열어 보세요. 화면 오른쪽 위에 결과가 뜹니다.</li>
+      </ol>
+      <div class="cta">
+        <a class="btn" href="https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk?utm_source=landing&amp;utm_medium=web&amp;utm_campaign=home">크롬에 추가하기</a>
+      </div>
+      <p class="fine">설치할 때 크롬이 Gmail과 네이버 메일 페이지에 대한 권한을 묻습니다. 열린 메일에서 보낸 사람 주소를 읽고 결과 카드를 띄우는 데 씁니다.</p>
+    </div>
+    <div class="proof limits">
+      <h2>이럴 때는 놓칠 수 있습니다</h2>
+      <ul>
+        <li>Gmail과 네이버 메일의 웹 화면에서만 동작합니다. 휴대폰 메일 앱, Outlook, 회사나 기관이 따로 운영하는 웹메일에서는 동작하지 않습니다.</li>
+        <li>거래처의 진짜 메일 계정이 해킹되면 보낸 곳 자체는 진짜라서 알아채기 어렵습니다. 계좌를 바꿔 달라는 메일은 원래 알던 번호로 전화해 확인하세요.</li>
+        <li>네이버 메일에서는 메일 헤더를 볼 수 없습니다. 그래서 발신 인증과 답장 주소는 확인하지 못합니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8. 부탁 -->
+  <section class="split">
+    <div class="text">
+      <h2>설치하신 분께 부탁드립니다</h2>
+      <p>공개한 지 얼마 안 된 도구라 실제 메일로 확인한 사례가 아직 적습니다. 두 가지를 알려 주시면 판정이 나아집니다.</p>
+      <ul class="asks">
+        <li><b>사칭 메일이 맞다면 신고해 주세요.</b> 의심이나 위험 카드의 오른쪽 위에 신고 버튼이 있습니다. 운영자가 확인하면 같은 보낸 사람에게서 메일을 받는 다른 분께도 경고가 뜹니다.</li>
+        <li><b>판정이 틀렸다면 메일로 알려 주세요.</b> 정상 메일에 경고가 떴거나 사칭 메일이 이상 없음으로 나온 경우입니다. 보낸 주소의 @ 뒤 도메인, 화면에 나온 판정, 확장 버전이면 충분합니다. 본문은 보내지 않으셔도 됩니다.</li>
+      </ul>
+      <p class="cta-links"><a class="link" href="mailto:contact@ys-ware.com">contact@ys-ware.com으로 알리기</a> <a class="link" href="/support">지원 페이지</a></p>
+    </div>
+    <figure class="proof">
+      <img src="/img/card-report.webp" width="368" height="236" loading="lazy"
+        alt="신고 패널. 이 메일을 신고할까요? 운영자가 확인한 뒤 위험 DB에 올라가 같은 발신자의 메일을 받는 다른 사용자에게도 경고가 뜹니다. 동의하고 신고하기, 취소 버튼">
+      <figcaption>카드 오른쪽 위 신고 버튼을 누르면 나오는 화면입니다.</figcaption>
+    </figure>
+  </section>
+
+  <!-- 9. AI 상세 분석 -->
+  <p class="aside">의심이나 위험으로 나온 메일을 AI가 한 번 더 읽고 무엇을 하면 되는지 알려 주는 AI 상세 분석도 있습니다. 월 5,900원 구독이고, 판정과 근거, 신고는 구독 없이 그대로 씁니다.</p>
+
 </main>
+
+<footer class="foot">
+  <p><a href="/privacy">개인정보 처리방침</a> · <a href="/support">지원</a> · <a href="mailto:contact@ys-ware.com">contact@ys-ware.com</a></p>
+  <p>its-a-trap은 이 페이지에 나온 기관이나 회사와 제휴하지 않았습니다.</p>
+</footer>
+
 </body>
 </html>
