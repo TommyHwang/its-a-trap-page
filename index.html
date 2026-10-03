@@ -4,14 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>its-a-trap | 메일을 열면 사칭 메일인지 근거로 알려 주는 크롬 확장</title>
-<meta name="description" content="Gmail과 네이버 메일에서 메일을 열면 보낸 도메인이 공식 기관 도메인인지, 언제 생겼는지 확인해 위험, 의심, 이상 없음으로 알려 줍니다. 판정과 신고는 무료이고 로그인이 필요 없습니다.">
+<title>its-a-trap | 사칭 메일 확인 크롬 확장 (Gmail·네이버 메일)</title>
+<meta name="description" content="메일을 열면 보낸 도메인이 기관의 공식 도메인인지, 언제 생겼는지 확인해 위험·의심·이상 없음으로 알려 주는 크롬 확장입니다. Gmail·네이버 메일, 판정은 무료.">
+<link rel="canonical" href="https://its-a-trap-page.vercel.app/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="its-a-trap | 메일을 열면 사칭 메일인지 근거로 알려 주는 크롬 확장">
-<meta property="og:description" content="Gmail과 네이버 메일에서 메일을 열면 보낸 도메인이 공식 기관 도메인인지, 언제 생겼는지 확인해 위험, 의심, 이상 없음으로 알려 줍니다. 판정과 신고는 무료이고 로그인이 필요 없습니다.">
+<meta property="og:site_name" content="its-a-trap">
+<meta property="og:url" content="https://its-a-trap-page.vercel.app/">
+<meta property="og:title" content="its-a-trap | 사칭 메일 확인 크롬 확장 (Gmail·네이버 메일)">
+<meta property="og:description" content="메일을 열면 보낸 도메인이 기관의 공식 도메인인지, 언제 생겼는지 확인해 위험·의심·이상 없음으로 알려 주는 크롬 확장입니다. Gmail·네이버 메일, 판정은 무료.">
 <meta property="og:image" content="https://its-a-trap-page.vercel.app/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="its-a-trap 위험 판정 카드와 '메일을 열면 보낸 곳이 진짜인지 먼저 봅니다'">
 <meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://its-a-trap-page.vercel.app/#org", "name": "its-a-trap", "url": "https://its-a-trap-page.vercel.app/", "logo": "https://its-a-trap-page.vercel.app/icon.png", "email": "contact@ys-ware.com", "sameAs": ["https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk"]}, {"@type": "WebSite", "@id": "https://its-a-trap-page.vercel.app/#site", "name": "its-a-trap", "url": "https://its-a-trap-page.vercel.app/", "inLanguage": "ko-KR", "publisher": {"@id": "https://its-a-trap-page.vercel.app/#org"}}, {"@type": "SoftwareApplication", "@id": "https://its-a-trap-page.vercel.app/#app", "name": "its-a-trap", "applicationCategory": "SecurityApplication", "operatingSystem": "Chrome", "inLanguage": "ko-KR", "url": "https://its-a-trap-page.vercel.app/", "downloadUrl": "https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk", "image": "https://its-a-trap-page.vercel.app/img/og.png", "description": "Gmail과 네이버 메일 웹 화면에서 메일을 열면 보낸 도메인이 기관의 공식 도메인인지, 언제 등록됐는지 확인해 위험·의심·이상 없음으로 알려 주는 크롬 확장", "publisher": {"@id": "https://its-a-trap-page.vercel.app/#org"}, "offers": [{"@type": "Offer", "name": "판정·근거·신고", "price": "0", "priceCurrency": "KRW"}, {"@type": "Offer", "name": "AI 상세 분석 월 구독", "price": "5900", "priceCurrency": "KRW"}]}]}</script>
 <link rel="stylesheet" href="/tokens.css">
 <link rel="stylesheet" href="/home.css">
 </head>
@@ -19,7 +28,10 @@
 
 <header class="nav">
   <a class="wordmark" href="/"><img src="/icon.png" alt="" width="28" height="28">its-a-trap</a>
-  <a class="btn-line" href="https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk?utm_source=landing&amp;utm_medium=web&amp;utm_campaign=home">크롬에 추가</a>
+  <nav class="nav-links" aria-label="사이트">
+    <a href="/guide">가이드</a>
+    <a class="btn-line" href="https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk?utm_source=landing&amp;utm_medium=web&amp;utm_campaign=home">크롬에 추가</a>
+  </nav>
 </header>
 
 <main>
@@ -30,7 +42,7 @@
       <p class="lede-kicker">Gmail과 네이버 메일에서 쓰는 크롬 확장</p>
       <h1>메일을 열면 보낸 곳이 진짜인지 먼저 봅니다</h1>
       <p class="lede">공문, 조사 통지, 세금계산서, 견적 요청. 혼자 사업하면 이런 메일을 직접 열고 직접 판단합니다.</p>
-      <p class="lede">its-a-trap은 메일을 여는 순간 보낸 도메인이 그 기관의 공식 도메인인지, 언제 생겼는지 확인해서 화면 오른쪽 위에 알려 줍니다.</p>
+      <p class="lede">its-a-trap은 Gmail과 네이버 메일에서 메일을 여는 순간 보낸 도메인이 그 기관의 공식 도메인인지, 언제 생겼는지 확인해 위험·의심·이상 없음으로 알려 주는 크롬 확장입니다.</p>
       <div class="cta">
         <a class="btn" href="https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk?utm_source=landing&amp;utm_medium=web&amp;utm_campaign=home">크롬에 추가하기</a>
         <a class="link" href="#privacy">무엇이 밖으로 나가는지 먼저 보기</a>
@@ -39,10 +51,21 @@
         PC 크롬으로 연 Gmail과 네이버 메일 웹 화면에서 동작합니다.</p>
     </div>
     <figure class="proof">
-      <img src="/img/card-danger.webp" width="368" height="822"
+      <img src="/img/card-danger.webp" width="368" height="822" fetchpriority="high"
         alt="위험 판정 카드. 보낸 주소 rfp@kancsup.com, 기관 사칭 여부 위험(kanc.re.kr 이름을 품은 다른 도메인), 도메인 나이 위험, 본문 수법 위험, 한국나노기술원 대표번호 031-546-6000으로 확인하라는 안내, 신고·상담 118·112">
       <figcaption>예시 화면입니다. 실제 사칭 메일을 재현했습니다.</figcaption>
     </figure>
+  </section>
+
+  <!-- 한눈에 — 인용되기 좋은 사실만 -->
+  <section class="facts" aria-labelledby="facts-h">
+    <h2 id="facts-h">한눈에</h2>
+    <dl>
+      <div><dt>쓰는 곳</dt><dd>PC 크롬으로 연 Gmail과 네이버 메일 웹 화면</dd></div>
+      <div><dt>대조하는 기관</dt><dd>공공기관·연구기관·대학 등 90곳의 공식 도메인(2026년 10월 기준)</dd></div>
+      <div><dt>무료</dt><dd>판정, 근거, 신고. 가입이나 로그인이 필요 없습니다</dd></div>
+      <div><dt>구독</dt><dd>AI 상세 분석, 월 5,900원</dd></div>
+    </dl>
   </section>
 
   <!-- 2. 예시 -->
@@ -214,7 +237,7 @@
 </main>
 
 <footer class="foot">
-  <p><a href="/privacy">개인정보 처리방침</a> · <a href="/support">지원</a> · <a href="mailto:contact@ys-ware.com">contact@ys-ware.com</a></p>
+  <p><a href="/guide">가이드</a> · <a href="/privacy">개인정보 처리방침</a> · <a href="/support">지원</a> · <a href="mailto:contact@ys-ware.com">contact@ys-ware.com</a></p>
   <p>its-a-trap은 이 페이지에 나온 기관이나 회사와 제휴하지 않았습니다.</p>
 </footer>
 

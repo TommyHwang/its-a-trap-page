@@ -1,0 +1,57 @@
+/* 가이드(블로그) — home.css의 머리·버튼·바닥을 그대로 쓰고, 글 읽기 폭과 짜임만 더한다.
+ * 감정서 모티프: 굵은 먹줄 아래 항목, 가는 줄로 나눈 원장. 토큰은 tokens.css */
+
+.article { max-width: 44rem; margin: 0 auto; padding: var(--space-2xl) var(--space-md) var(--space-3xl); }
+.article h1 {
+  font-size: var(--text-2xl); line-height: 1.35; font-weight: 800;
+  letter-spacing: -0.015em; margin: var(--space-sm) 0 var(--space-sm);
+}
+.crumbs { font-size: var(--text-sm); color: var(--ink-2); }
+.crumbs a { color: var(--ink-2); }
+.meta { font-size: var(--text-sm); color: var(--ink-2); padding-bottom: var(--space-md); border-bottom: 2px solid var(--ink); margin-bottom: var(--space-lg); }
+.lede { font-size: var(--text-lg); line-height: 1.7; }
+
+.toc { margin: 0 0 var(--space-xl); padding: var(--space-sm) 0; border-bottom: 1px solid var(--rule); }
+.toc p { font-size: var(--text-sm); font-weight: 700; margin: 0 0 var(--space-2xs); }
+.toc ol { margin: 0; padding-left: 1.3em; font-size: var(--text-sm); }
+.toc a { color: var(--ink); }
+
+.prose h2 {
+  font-size: var(--text-lg); line-height: 1.45; font-weight: 800;
+  margin: var(--space-2xl) 0 var(--space-sm); padding-top: var(--space-md);
+  border-top: 1px solid var(--rule);
+}
+.prose h3 { font-size: var(--text-base); margin: var(--space-lg) 0 var(--space-2xs); }
+.prose p, .prose ul, .prose ol { margin: 0 0 var(--space-md); }
+.prose ul, .prose ol { padding-left: 1.3em; }
+.prose li { margin: var(--space-2xs) 0; padding-left: var(--space-2xs); }
+.prose > p:first-child { font-size: var(--text-lg); line-height: 1.7; font-weight: 700; }
+.prose blockquote {
+  margin: 0 0 var(--space-md); padding: var(--space-sm) var(--space-md);
+  background: var(--paper-2); border-top: 2px solid var(--ink);
+}
+.prose blockquote p { margin: 0; }
+
+.faq, .sources { margin-top: var(--space-2xl); }
+.faq h2, .sources h2 { font-size: var(--text-lg); margin: 0 0 var(--space-sm); padding-top: var(--space-md); border-top: 2px solid var(--ink); }
+.faq dl { margin: 0; }
+.faq dl > div { padding: var(--space-sm) 0; border-bottom: 1px solid var(--rule); }
+.faq dt { font-weight: 700; }
+.faq dd { margin: var(--space-2xs) 0 0; }
+.sources ol { margin: 0; padding-left: 1.3em; font-size: var(--text-sm); color: var(--ink-2); }
+.sources li { margin: var(--space-2xs) 0; }
+
+.install {
+  margin-top: var(--space-2xl); padding: var(--space-lg) 0 0;
+  border-top: 2px solid var(--ink);
+}
+.install p:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm) var(--space-lg); margin: var(--space-md) 0 0; }
+
+/* 글 목록 */
+.posts { list-style: none; margin: var(--space-xl) 0 0; padding: 0; border-top: 2px solid var(--ink); }
+.posts li { border-bottom: 1px solid var(--rule); }
+.posts a { display: block; padding: var(--space-md) 0; color: var(--ink); text-decoration: none; }
+.posts a:hover h2 { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.posts h2 { font-size: var(--text-lg); line-height: 1.45; margin: 0 0 var(--space-2xs); }
+.posts p { margin: 0 0 var(--space-2xs); color: var(--ink-2); }
+.posts time { font-size: var(--text-sm); color: var(--ink-2); }

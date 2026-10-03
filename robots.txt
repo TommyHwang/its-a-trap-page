@@ -1,0 +1,5 @@
+# 검색·AI 답변 크롤러 모두 허용 — 이 사이트는 찾아지는 것이 목적이다
+User-agent: *
+Allow: /
+
+Sitemap: https://its-a-trap-page.vercel.app/sitemap.xml

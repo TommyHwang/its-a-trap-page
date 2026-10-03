@@ -39,6 +39,10 @@ code {
 }
 
 /* ---- 버튼·링크 ---- */
+.nav-links { display: flex; align-items: center; gap: var(--space-lg); }
+.nav-links > a:not(.btn-line) { color: var(--ink); font-size: var(--text-sm); font-weight: 700; text-decoration: none; white-space: nowrap; }
+.nav-links > a:not(.btn-line):hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
 .btn, .btn-line {
   display: inline-block; white-space: nowrap;
   font-weight: 700; text-decoration: none; line-height: 1.2;
@@ -101,6 +105,18 @@ h3 { font-size: var(--text-base); line-height: 1.5; font-weight: 700; margin: 0 
 figure.proof img { box-shadow: var(--shot-shadow); }
 .hero figure.proof img { max-width: 21.25rem; }
 figcaption { font-size: var(--text-sm); color: var(--ink-2); margin-top: var(--space-sm); }
+
+/* 한눈에 — 사실 네 줄. 감정서의 요약 칸 */
+.facts { border-top: 1px solid var(--rule); padding: var(--space-xl) 0; }
+.facts h2 { font-size: var(--text-base); margin-bottom: var(--space-sm); }
+.facts dl {
+  margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 2px solid var(--ink);
+}
+.facts dl > div { padding: var(--space-sm) var(--space-md) var(--space-sm) 0; border-bottom: 1px solid var(--rule); }
+.facts dt { font-size: var(--text-sm); color: var(--ink-2); }
+.facts dd { margin: 0; font-weight: 700; line-height: 1.55; }
+.facts + .split { border-top: 0; }
 
 /* ---- 원장 — 감정서의 항목·값 줄 ---- */
 .ledger { margin: 0; border-top: 2px solid var(--ink); }
@@ -185,8 +201,11 @@ figcaption { font-size: var(--text-sm); color: var(--ink-2); margin-top: var(--s
   figure.proof img { margin: 0 auto; max-width: min(100%, 21.25rem); }
   figure.proof figcaption { text-align: center; }
   .hero { padding-top: var(--space-xl); }
+  .facts dl { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
 @media (max-width: 420px) {
+  .facts dl { grid-template-columns: minmax(0, 1fr); }
+  .nav-links { gap: var(--space-sm); }
   .ledger > div, .grades > div { grid-template-columns: minmax(0, 1fr); gap: var(--space-2xs); }
   .btn { width: 100%; text-align: center; }
 }
