@@ -116,7 +116,7 @@ function markdown(md) {
 }
 
 /* ---------- 공통 조각 ---------- */
-const storeLink = (campaign) => `${STORE}?utm_source=guide&amp;utm_medium=web&amp;utm_campaign=${encodeURIComponent(campaign)}`;
+const storeLink = (campaign) => `${STORE}?utm_source=guide&amp;utm_medium=article&amp;utm_campaign=${encodeURIComponent(campaign)}`;
 const fmtDate = (d) => { const [y, m, dd] = d.split("-"); return `${y}년 ${Number(m)}월 ${Number(dd)}일`; };
 const ORG = { "@type": "Organization", "@id": `${SITE}/#org`, name: "its-a-trap", url: `${SITE}/`, email: "contact@ys-ware.com", logo: `${SITE}/icon.png`, sameAs: [STORE] };
 const kst = (d) => `${d}T09:00:00+09:00`;
@@ -172,7 +172,8 @@ function readPosts() {
     const fm = parseYaml(m[1]);
     for (const k of ["title", "description", "slug", "published"]) if (!fm[k]) throw new Error(`${f}: ${k} 없음`);
     if (!/^[a-z0-9-]+$/.test(fm.slug)) throw new Error(`${f}: slug는 영문 소문자·숫자·하이픈`);
-    return { ...fm, updated: fm.updated || fm.published, body: m[2], file: f };
+    /* 원고의 게시 전 메모(<!-- -->)는 싣지 않는다 */
+    return { ...fm, campaign: fm.campaign || fm.slug, updated: fm.updated || fm.published, body: m[2].replace(/<!--[\s\S]*?-->/g, ""), file: f };
   }).sort((a, b) => b.published.localeCompare(a.published));
 }
 
@@ -196,7 +197,7 @@ function postPage(p) {
   ] };
   return `${head({ title: `${p.title} | its-a-trap`, description: p.description, path, type: "article", jsonld, published: p.published, updated: p.updated })}
 <body>
-${nav(p.slug)}
+${nav(p.campaign)}
 <main class="article">
   <nav class="crumbs" aria-label="현재 위치"><a href="/">its-a-trap</a> › <a href="/guide">가이드</a></nav>
   <h1>${esc(p.title)}</h1>
@@ -210,7 +211,7 @@ ${html}
   ${sources.length ? `<section class="sources" aria-labelledby="src"><h2 id="src">출처</h2><ol>${sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener">${esc(s.title || s.url)}</a>${s.date ? ` · ${esc(s.date)}` : ""}</li>`).join("")}</ol></section>` : ""}
   <aside class="install">
     <p><strong>its-a-trap</strong>은 Gmail과 네이버 메일에서 메일을 열면 보낸 도메인이 그 기관의 공식 도메인인지, 언제 생겼는지 확인해 위험·의심·이상 없음으로 알려 주는 크롬 확장입니다. 판정과 신고는 무료입니다.</p>
-    <p><a class="btn" href="${storeLink(p.slug)}">크롬에 추가하기</a> <a class="link" href="/">어떻게 동작하는지 보기</a></p>
+    <p><a class="btn" href="${storeLink(p.campaign)}">크롬에 추가하기</a> <a class="link" href="/">어떻게 동작하는지 보기</a></p>
   </aside>
 </main>
 ${foot}

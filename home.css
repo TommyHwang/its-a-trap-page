@@ -157,6 +157,8 @@ figcaption { font-size: var(--text-sm); color: var(--ink-2); margin-top: var(--s
 .cases { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
 .cases li { padding: var(--space-md) 0; border-bottom: 1px solid var(--rule); }
 .cases p { margin-bottom: var(--space-2xs); }
+.cases h3 a { color: var(--ink); text-underline-offset: 3px; }
+.cases h3 a:hover { color: var(--accent); }
 .cases .src { font-size: var(--text-sm); color: var(--ink-2); }
 .cases .src:hover { color: var(--accent); }
 
