@@ -11,7 +11,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const SITE = (process.env.SITE_URL || "https://its-a-trap-page.vercel.app").replace(/\/$/, "");
+const SITE = (process.env.SITE_URL || "https://its-a-trap.app").replace(/\/$/, "");
 const keyFile = readdirSync(root).find((f) => /^[0-9a-f]{32}\.txt$/.test(f));
 if (!keyFile) { console.error("❌ 루트에 IndexNow 키 파일(<32자 hex>.txt)이 없다"); process.exit(1); }
 const key = keyFile.slice(0, -4);

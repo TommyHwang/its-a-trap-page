@@ -16,7 +16,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, statSy
 import { resolve, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const SITE = (process.env.SITE_URL || "https://its-a-trap-page.vercel.app").replace(/\/$/, "");
+const SITE = (process.env.SITE_URL || "https://its-a-trap.app").replace(/\/$/, "");
 const STORE = "https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const srcDir = join(root, "content/guide");

@@ -3,8 +3,8 @@
 > its-a-trap은 Gmail과 네이버 메일 웹 화면에서 메일을 열면 보낸 도메인이 기관의 공식 도메인인지, 언제 등록됐는지 확인해 위험·의심·이상 없음으로 알려 주는 크롬 확장입니다. 판정·근거·신고는 무료이고, AI 상세 분석은 월 5,900원 구독입니다.
 
 ## 핵심
-- [소개](https://its-a-trap-page.vercel.app/): 기능, 판정 기준, 밖으로 나가는 정보, 한계
-- [사칭 메일 확인 가이드](https://its-a-trap-page.vercel.app/guide): 기관을 사칭한 메일이 진짜인지 확인하는 방법(출처 포함)
-- [개인정보 처리방침](https://its-a-trap-page.vercel.app/privacy)
-- [지원](https://its-a-trap-page.vercel.app/support)
+- [소개](https://its-a-trap.app/): 기능, 판정 기준, 밖으로 나가는 정보, 한계
+- [사칭 메일 확인 가이드](https://its-a-trap.app/guide): 기관을 사칭한 메일이 진짜인지 확인하는 방법(출처 포함)
+- [개인정보 처리방침](https://its-a-trap.app/privacy)
+- [지원](https://its-a-trap.app/support)
 - [크롬 웹스토어](https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk)
