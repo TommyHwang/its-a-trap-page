@@ -118,7 +118,8 @@ function markdown(md) {
 /* ---------- 공통 조각 ---------- */
 const storeLink = (campaign) => `${STORE}?utm_source=guide&amp;utm_medium=web&amp;utm_campaign=${encodeURIComponent(campaign)}`;
 const fmtDate = (d) => { const [y, m, dd] = d.split("-"); return `${y}년 ${Number(m)}월 ${Number(dd)}일`; };
-const ORG = { "@type": "Organization", "@id": `${SITE}/#org`, name: "its-a-trap", url: `${SITE}/`, email: "contact@ys-ware.com", logo: `${SITE}/icon.png` };
+const ORG = { "@type": "Organization", "@id": `${SITE}/#org`, name: "its-a-trap", url: `${SITE}/`, email: "contact@ys-ware.com", logo: `${SITE}/icon.png`, sameAs: [STORE] };
+const kst = (d) => `${d}T09:00:00+09:00`;
 
 function head({ title, description, path, type = "website", jsonld, published, updated, noindex }) {
   const url = `${SITE}${path}`;
@@ -183,15 +184,15 @@ function postPage(p) {
   const jsonld = { "@context": "https://schema.org", "@graph": [
     ORG,
     { "@type": "BlogPosting", "@id": `${SITE}${path}#article`, headline: p.title, description: p.description,
-      inLanguage: "ko-KR", datePublished: p.published, dateModified: p.updated,
-      mainEntityOfPage: `${SITE}${path}`, image: `${SITE}/img/og.png`,
+      inLanguage: "ko-KR", datePublished: kst(p.published), dateModified: kst(p.updated),
+      mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE}${path}` }, isPartOf: { "@id": `${SITE}/guide#blog` }, image: [`${SITE}/img/og.png`],
       keywords: (p.keywords || []).join(", "),
       author: { "@id": `${SITE}/#org` }, publisher: { "@id": `${SITE}/#org` },
       ...(sources.length ? { citation: sources.map((s) => ({ "@type": "CreativeWork", name: s.title || s.url, url: s.url, ...(s.date ? { datePublished: s.date } : {}) })) } : {}) },
     { "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "its-a-trap", item: `${SITE}/` },
       { "@type": "ListItem", position: 2, name: "가이드", item: `${SITE}/guide` },
-      { "@type": "ListItem", position: 3, name: p.title, item: `${SITE}${path}` }] }
+      { "@type": "ListItem", position: 3, name: p.title }] }
   ] };
   return `${head({ title: `${p.title} | its-a-trap`, description: p.description, path, type: "article", jsonld, published: p.published, updated: p.updated })}
 <body>
@@ -222,7 +223,11 @@ function indexPage(posts) {
   const path = "/guide";
   const jsonld = { "@context": "https://schema.org", "@graph": [ORG,
     { "@type": ["CollectionPage", "Blog"], "@id": `${SITE}/guide#blog`, name: "its-a-trap 가이드", inLanguage: "ko-KR", url: `${SITE}/guide`, publisher: { "@id": `${SITE}/#org` },
-      blogPost: posts.map((p) => ({ "@type": "BlogPosting", headline: p.title, url: `${SITE}/guide/${p.slug}`, datePublished: p.published, dateModified: p.updated })) }] };
+      isPartOf: { "@id": `${SITE}/#site` },
+      ...(posts.length ? { blogPost: posts.map((p) => ({ "@id": `${SITE}/guide/${p.slug}#article` })) } : {}) },
+    { "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "its-a-trap", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "가이드" }] }] };
   return `${head({ noindex: !posts.length, title: "사칭 메일 확인 가이드 | its-a-trap", description: "기관·거래처를 사칭한 메일을 받았을 때 진짜인지 확인하는 방법을 공지와 출처를 붙여 정리합니다. 1인 사업자와 온라인 셀러가 자주 받는 메일부터 다룹니다.", path, jsonld })}
 <body>
 ${nav("guide-index")}
