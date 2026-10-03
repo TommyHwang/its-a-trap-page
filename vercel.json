@@ -39,14 +39,25 @@
   ],
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/",
       "has": [
         {
           "type": "host",
           "value": "its-a-trap-page.vercel.app"
         }
       ],
-      "destination": "https://its-a-trap.app/:path*",
+      "destination": "https://its-a-trap.app/",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "its-a-trap-page.vercel.app"
+        }
+      ],
+      "destination": "https://its-a-trap.app/:path+",
       "permanent": true
     }
   ]
