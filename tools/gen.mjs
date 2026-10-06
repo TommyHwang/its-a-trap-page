@@ -80,13 +80,26 @@ function markdown(md) {
   let para = [];
   let list = null;
   let quote = [];
+  let table = [];
+  const cells = (row) => row.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
+  /* 표 — 첫 줄은 머리, 둘째 줄(---)은 구분선. 대표번호처럼 짝지어 읽는 정보에만 쓴다 */
+  const flushTable = () => {
+    if (!table.length) return;
+    if (table.length < 3 || !/^[\s|:-]+$/.test(table[1])) throw new Error(`표 형식이 아니다: ${table[0]}`);
+    const [head, , ...body] = table;
+    html.push(`<div class="table-wrap"><table><thead><tr>${cells(head).map((c) => `<th scope="col">${inline(c)}</th>`).join("")}</tr></thead>` +
+      `<tbody>${body.map((r) => `<tr>${cells(r).map((c) => `<td>${inline(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`);
+    table = [];
+  };
   const flushPara = () => { if (para.length) { html.push(`<p>${inline(para.join(" "))}</p>`); para = []; } };
   const flushList = () => { if (list) { html.push(`<${list.tag}>${list.items.map((i) => `<li>${inline(i)}</li>`).join("")}</${list.tag}>`); list = null; } };
   const flushQuote = () => { if (quote.length) { html.push(`<blockquote><p>${inline(quote.join(" "))}</p></blockquote>`); quote = []; } };
-  const flushAll = () => { flushPara(); flushList(); flushQuote(); };
+  const flushAll = () => { flushPara(); flushList(); flushQuote(); flushTable(); };
   for (const line of lines) {
     let m;
     if (!line.trim()) { flushAll(); continue; }
+    if (/^\|/.test(line)) { flushPara(); flushList(); flushQuote(); table.push(line); continue; }
+    flushTable();
     if ((m = line.match(/^(#{2,3})\s+(.*)$/))) {
       flushAll();
       const lvl = m[1].length, text = m[2].trim(), id = slugId(text);
@@ -107,7 +120,7 @@ function markdown(md) {
       list.items.push(m[1]); continue;
     }
     if (list && /^\s{2,}\S/.test(line)) { list.items[list.items.length - 1] += " " + line.trim(); continue; }
-    if (/^(```|\|)/.test(line)) throw new Error(`지원하지 않는 Markdown: ${line}`);
+    if (/^```/.test(line)) throw new Error(`지원하지 않는 Markdown: ${line}`);
     flushList(); flushQuote();
     para.push(line.trim());
   }

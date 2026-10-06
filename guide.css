@@ -31,6 +31,12 @@
   background: var(--paper-2); border-top: 2px solid var(--ink);
 }
 .prose blockquote p { margin: 0; }
+/* 표 — 원장처럼 굵은 머리줄 아래 가는 줄. 좁은 화면에서는 표만 가로로 민다 */
+.table-wrap { margin: 0 0 var(--space-md); overflow-x: auto; }
+.prose table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+.prose th { text-align: left; font-weight: 700; padding: var(--space-2xs) var(--space-sm) var(--space-2xs) 0; border-bottom: 2px solid var(--ink); white-space: nowrap; }
+.prose td { padding: var(--space-2xs) var(--space-sm) var(--space-2xs) 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.prose td:nth-child(2) { white-space: nowrap; font-variant-numeric: tabular-nums; }
 
 .faq, .sources { margin-top: var(--space-2xl); }
 .faq h2, .sources h2 { font-size: var(--text-lg); margin: 0 0 var(--space-sm); padding-top: var(--space-md); border-top: 2px solid var(--ink); }
