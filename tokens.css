@@ -1,8 +1,11 @@
 /* its-a-trap 페이지 토큰 — 확장의 "감정서" 토큰(its-a-trap/apps/extension/tokens.css)과 같은 값.
  * 색·글꼴·간격은 모두 여기서만 정한다. style.css(처리방침·지원)와 home.css(첫 화면)가 같이 쓴다.
- * 웹폰트는 받지 않는다 — 확장과 같은 시스템 산세리프 + 모노. */
+ * 본문은 Pretendard(같은 도메인에서 직접 내려줌, OFL — fonts/pretendard/OFL.txt). 맑은 고딕으로 보이던
+ * Windows에서 글자 짜임이 크게 나아진다. 확장은 여전히 시스템 글꼴만 쓴다(메일 열 때 요청이 나가면 안 됨).
+ * 모노는 시스템 것. 필요한 글자 범위의 조각만 받는다(unicode-range). */
+@import url("/fonts/pretendard.css");
 :root {
-  --font-sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+  --font-sans: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
     "Malgun Gothic", "Segoe UI", sans-serif;
   --font-mono: ui-monospace, "SF Mono", "D2Coding", "Cascadia Mono", Menlo, Consolas, monospace;
 
@@ -37,12 +40,15 @@
   --text-base: 1.0625rem;
   --text-lg: 1.25rem;
   --text-2xl: clamp(1.5rem, 1.2rem + 1.4vw, 2rem);
-  --text-display: clamp(2rem, 1.3rem + 3.2vw, 3.25rem);
+  --text-display: clamp(2.125rem, 1.3rem + 3.4vw, 3.5rem);
+  --text-domain: clamp(1.5rem, 0.9rem + 2.6vw, 2.75rem);
 
   --radius-xs: 2px;
   --radius-sm: 3px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-short: 180ms;
+  --dur-enter: 640ms;
+  --shot-shadow-lg: 0 2px 4px oklch(20% 0.02 260 / 0.06), 0 18px 48px oklch(20% 0.02 260 / 0.14);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -62,5 +68,6 @@
     --ok: oklch(74% 0.1 150);
     --on-accent: oklch(17% 0.012 260);
     --shot-shadow: 0 6px 24px oklch(0% 0 0 / 0.4);
+    --shot-shadow-lg: 0 2px 4px oklch(0% 0 0 / 0.3), 0 18px 48px oklch(0% 0 0 / 0.45);
   }
 }
