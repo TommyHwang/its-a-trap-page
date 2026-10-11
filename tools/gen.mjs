@@ -151,7 +151,7 @@ function head({ title, description, path, type = "website", jsonld, published, u
 <meta property="og:url" content="${url}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
-<meta property="og:image" content="${SITE}/img/og-2026-10.png">
+<meta property="og:image" content="${SITE}/img/og-2026-10-11.png">
 <meta name="twitter:card" content="summary_large_image">${published ? `
 <meta property="article:published_time" content="${published}">
 <meta property="article:modified_time" content="${updated || published}">` : ""}
@@ -199,7 +199,7 @@ function postPage(p) {
     ORG,
     { "@type": "BlogPosting", "@id": `${SITE}${path}#article`, headline: p.title, description: p.description,
       inLanguage: "ko-KR", datePublished: kst(p.published), dateModified: kst(p.updated),
-      mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE}${path}` }, isPartOf: { "@id": `${SITE}/guide#blog` }, image: [`${SITE}/img/og-2026-10.png`],
+      mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE}${path}` }, isPartOf: { "@id": `${SITE}/guide#blog` }, image: [`${SITE}/img/og-2026-10-11.png`],
       keywords: (p.keywords || []).join(", "),
       author: { "@id": `${SITE}/#org` }, publisher: { "@id": `${SITE}/#org` },
       ...(sources.length ? { citation: sources.map((s) => ({ "@type": "CreativeWork", name: s.title || s.url, url: s.url, ...(s.date ? { datePublished: s.date } : {}) })) } : {}) },
