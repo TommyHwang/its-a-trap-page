@@ -61,3 +61,10 @@
 .posts h2 { font-size: var(--text-lg); line-height: 1.45; margin: 0 0 var(--space-2xs); }
 .posts p { margin: 0 0 var(--space-2xs); color: var(--ink-2); }
 .posts time { font-size: var(--text-sm); color: var(--ink-2); }
+
+/* 글 끝 "다른 글" — 목록과 같은 원장 줄, 머리는 FAQ·출처와 같은 굵은 먹줄 */
+.related { margin-top: var(--space-2xl); }
+.related > h2 { font-size: var(--text-lg); margin: 0 0 var(--space-2xs); padding-top: var(--space-md); border-top: 2px solid var(--ink); }
+.related .posts { margin: 0; border-top: 0; }
+.posts h3 { font-size: var(--text-base); line-height: 1.45; margin: 0 0 var(--space-2xs); }
+.posts a:hover h3 { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }

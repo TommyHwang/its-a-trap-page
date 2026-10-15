@@ -4,6 +4,7 @@
      guide/<slug>.html         글 페이지(cleanUrls로 /guide/<slug>)
      guide/index.html          글 목록
      sitemap.xml               전체 페이지
+     llms.txt                  "## 가이드 글" 칸만 다시 쓴다(나머지는 손으로 쓴 그대로)
    결과 HTML도 커밋한다. Vercel은 빌드 없이 정적 파일을 그대로 낸다.
 
      node tools/gen.mjs
@@ -12,7 +13,8 @@
    굵게, 코드 / 스칼라, [a, b], "- { k: v }" 목록). 그 밖의 문법은 오류로 멈춘다 —
    조용히 깨진 페이지를 내보내는 것보다 낫다. */
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, statSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { resolve, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -157,6 +159,7 @@ function head({ title, description, path, type = "website", jsonld, published, u
 <meta property="article:modified_time" content="${updated || published}">` : ""}
 <link rel="icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/icon.png">
+<link rel="stylesheet" href="/fonts/pretendard.css">
 <link rel="stylesheet" href="/tokens.css">
 <link rel="stylesheet" href="/home.css">
 <link rel="stylesheet" href="/guide.css">
@@ -190,7 +193,8 @@ function readPosts() {
   }).sort((a, b) => b.published.localeCompare(a.published));
 }
 
-function postPage(p) {
+function postPage(p, posts) {
+  const others = posts.filter((o) => o.slug !== p.slug).slice(0, 3);
   const path = `/guide/${p.slug}`;
   const { html, toc } = markdown(p.body);
   const faq = Array.isArray(p.faq) ? p.faq.filter((x) => x.q && x.a) : [];
@@ -226,6 +230,8 @@ ${html}
     <p><strong>its-a-trap</strong>은 Gmail과 네이버 메일에서 메일을 열면 보낸 도메인이 그 기관의 공식 도메인인지, 언제 생겼는지 확인해 위험·의심·이상 없음으로 알려 주는 크롬 확장입니다. 판정과 신고는 무료입니다.</p>
     <p><a class="btn" href="${storeLink(p.campaign)}">크롬에 추가하기</a> <a class="link" href="/">어떻게 동작하는지 보기</a></p>
   </aside>
+  ${others.length ? `<section class="related" aria-labelledby="more"><h2 id="more">다른 글</h2>
+    <ul class="posts">${others.map((o) => `<li><a href="/guide/${o.slug}"><h3>${esc(o.title)}</h3><p>${esc(o.description)}</p></a></li>`).join("")}</ul></section>` : ""}
 </main>
 ${foot}
 </body>
@@ -263,15 +269,20 @@ ${foot}
 const posts = readPosts();
 for (const p of posts) {
   mkdirSync(join(root, "guide"), { recursive: true });
-  writeFileSync(join(root, "guide", `${p.slug}.html`), postPage(p));
+  writeFileSync(join(root, "guide", `${p.slug}.html`), postPage(p, posts));
 }
 mkdirSync(join(root, "guide"), { recursive: true });
 writeFileSync(join(root, "guide/index.html"), indexPage(posts));
 
-const lastmod = (f) => statSync(join(root, f)).mtime.toISOString().slice(0, 10);
+/* 손으로 쓴 페이지의 lastmod는 그 파일의 마지막 커밋 날짜. 파일 mtime은 clone·체크아웃 때마다 바뀌어 못 쓴다.
+   커밋 전 고친 파일은 오늘 날짜(곧 커밋해 배포할 것이므로) */
+const today = new Date().toLocaleDateString("sv-SE", { timeZone: "Asia/Seoul" });
+const git = (...a) => execFileSync("git", a, { cwd: root, encoding: "utf8" }).trim();
+const lastmod = (f) => (git("status", "--porcelain", "--", f) ? today : git("log", "-1", "--format=%cs", "--", f) || today);
+const newest = posts.reduce((m, p) => (p.updated > m ? p.updated : m), "");
 const urls = [
   { loc: "/", lastmod: lastmod("index.html") },
-  ...(posts.length ? [{ loc: "/guide", lastmod: posts[0].updated }] : []),
+  ...(posts.length ? [{ loc: "/guide", lastmod: newest }] : []),
   ...posts.map((p) => ({ loc: `/guide/${p.slug}`, lastmod: p.updated })),
   { loc: "/privacy", lastmod: lastmod("privacy/index.html") },
   { loc: "/support", lastmod: lastmod("support/index.html") }
@@ -281,4 +292,12 @@ writeFileSync(join(root, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
 ${urls.map((u) => `  <url><loc>${SITE}${u.loc === "/" ? "/" : u.loc}</loc><lastmod>${u.lastmod}</lastmod></url>`).join("\n")}
 </urlset>
 `);
+/* llms.txt — 글 목록 칸만 갈아 끼운다. 칸이 없으면 끝에 붙인다 */
+const llmsPath = join(root, "llms.txt");
+const llmsGuide = `## 가이드 글\n${posts.map((p) => `- [${p.title}](${SITE}/guide/${p.slug}): ${p.description}`).join("\n")}\n`;
+const llms = readFileSync(llmsPath, "utf8");
+writeFileSync(llmsPath, /^## 가이드 글\n/m.test(llms)
+  ? llms.replace(/^## 가이드 글\n[\s\S]*?(?=^## |(?![\s\S]))/m, llmsGuide + (/^## 가이드 글\n[\s\S]*?^## /m.test(llms) ? "\n" : ""))
+  : `${llms.replace(/\n*$/, "\n")}\n${llmsGuide}`);
+
 console.log(`✅ 가이드 ${posts.length}편 · guide/index.html · sitemap.xml (${urls.length} URL) — ${SITE}`);

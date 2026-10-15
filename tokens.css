@@ -2,8 +2,9 @@
  * 색·글꼴·간격은 모두 여기서만 정한다. style.css(처리방침·지원)와 home.css(첫 화면)가 같이 쓴다.
  * 본문은 Pretendard(같은 도메인에서 직접 내려줌, OFL — fonts/pretendard/OFL.txt). 맑은 고딕으로 보이던
  * Windows에서 글자 짜임이 크게 나아진다. 확장은 여전히 시스템 글꼴만 쓴다(메일 열 때 요청이 나가면 안 됨).
- * 모노는 시스템 것. 필요한 글자 범위의 조각만 받는다(unicode-range). */
-@import url("/fonts/pretendard.css");
+ * 모노는 시스템 것. 필요한 글자 범위의 조각만 받는다(unicode-range).
+ * 글꼴 CSS(/fonts/pretendard.css)는 여기서 @import하지 않고 각 페이지 head에서 <link>로 부른다 —
+ * @import는 tokens.css를 다 받은 뒤에야 요청이 나가서 첫 화면이 한 단계 늦어진다. */
 :root {
   --font-sans: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
     "Malgun Gothic", "Segoe UI", sans-serif;
