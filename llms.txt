@@ -10,6 +10,7 @@
 - [크롬 웹스토어](https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk)
 
 ## 가이드 글
+- [국세청 '전자세금계산서' 메일, 진짜인지 홈택스에서 확인하는 법](https://its-a-trap.app/guide/nts-e-tax-invoice-email): 전자세금계산서는 거래처가 발급하고 홈택스에서 조회됩니다. 메일의 첨부 파일과 링크는 열지 말고 홈택스에 직접 로그인해 확인하세요. 보낸 주소를 hometaxadmin@hometax.go.kr로 꾸민 사칭 메일도 돌았습니다. 국세 상담은 국번 없이 126입니다.
 - [신한·국민·하나은행 유출 뒤 '보상 조회' 메일과 문자, 진짜인지 확인하는 법](https://its-a-trap.app/guide/bank-leak-compensation-scam): 유출 조회나 보상 안내 링크는 누르지 말고 은행 앱이나 대표번호로 확인하세요. 2026년 10월 신한·KB국민·하나·BNK부산은행을 비롯한 금융회사 7곳에서 고객 정보가 샌 뒤 안전계좌 이체, OTP 입력, 대출 상환금 입금을 요구하는 연락을 가려내는 순서를 정리했습니다.
 - [저작권 위반 신고 메일 받았다면? 저작권보호원·저작권위원회 사칭 구별법](https://its-a-trap.app/guide/copyright-infringement-notice-email): 한국저작권위원회는 개별 저작권 위반 통보를 하지 않는다고 밝혔고, 한국저작권보호원도 2026년 8월 사칭 메일을 조심하라고 공지했습니다. 링크와 첨부 파일을 열기 전에 위원회 055-792-0000, 보호원 1588-0190으로 확인하는 순서를 정리했습니다.
 - [공정위 '전자상거래 위반행위 조사통지서' 메일, 진짜인지 확인하는 법](https://its-a-trap.app/guide/ftc-investigation-notice-email): 공정거래위원회는 조사 공문을 이메일로 보내지 않는다고 밝혔습니다. 조사통지서 메일을 받았다면 첨부 파일을 열지 말고 공정위 상담안내센터 1670-0007로 확인하세요. 보낸 주소와 첨부 파일을 보는 순서도 정리했습니다.
