@@ -4,7 +4,7 @@ description: "한국저작권위원회는 개별 저작권 위반 통보를 하�
 slug: copyright-infringement-notice-email
 campaign: copyright-notice-mail
 published: 2026-10-03
-updated: 2026-10-15
+updated: 2026-10-26
 keywords: [저작권 침해 메일, 저작권 위반 신고 메일, 한국저작권보호원 사칭 메일, 저작권보호원 메일, kcopa.or.kr, 한국저작권위원회 사칭 메일, koreacopyright.or.kr, 저작권 위반 메일 첨부파일]
 sources:
   - { title: "한국저작권위원회 사칭 메일 유포 주의 요청 (한국저작권위원회 공지)", url: "https://www.copyright.or.kr/notify/notice/view.do?brdctsno=49266", date: 2021-07-22 }
@@ -93,6 +93,8 @@ PC에서는 링크에 마우스를 올리면 크롬 창 왼쪽 아래에 실제�
 1. **보낸 주소의 @ 뒤를 봅니다.** 한국저작권위원회라면 copyright.or.kr, 한국저작권보호원이라면 kcopa.or.kr인지 봅니다. 기획사나 로펌이라면 그 회사 홈페이지 주소와 같은지 봅니다.
 2. **메일 밖에서 찾은 번호로 묻습니다.** 한국저작권위원회 대표번호는 055-792-0000이고 저작권 상담센터는 1800-5455입니다. 둘 다 위원회 홈페이지 아래쪽에 나와 있습니다([한국저작권위원회 홈페이지](https://www.copyright.or.kr/main.do)). 한국저작권보호원 대표전화는 1588-0190입니다([한국저작권보호원 홈페이지](https://www.kcopa.or.kr/)). 회사라면 그 회사 홈페이지에서 번호를 찾으세요.
 3. **확인이 끝날 때까지 링크와 첨부 파일을 열지 않습니다.** .zip이나 .rar 같은 압축 파일은 풀지 마세요. 아이콘이 PDF여도 실행 파일일 수 있습니다.
+
+저작권 말고 다른 기관 이름으로 온 메일도 확인 순서는 같습니다. 거래하면서 받는 '전자세금계산서' 메일은 [국세청 전자세금계산서 메일 확인법](/guide/nts-e-tax-invoice-email)에, '보험료 면제·급여정지 안내' 메일은 [건강보험공단 사칭 메일 확인법](/guide/nhis-impersonation-email)에 정리했습니다.
 
 ## its-a-trap에서 이 메일을 열면 어떻게 보이나요?
 
