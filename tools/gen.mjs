@@ -131,6 +131,9 @@ function markdown(md) {
 }
 
 /* ---------- 공통 조각 ---------- */
+// 휴대폰으로 들어온 사람은 여기서 설치할 수 없다. PC에서 열 링크를 자기 메일로 보내게 한다(스크립트 없이 mailto).
+const SEND_TO_PC = "mailto:?subject=" + encodeURIComponent("its-a-trap 설치 링크") + "&amp;body=" +
+  encodeURIComponent(`PC 크롬에서 아래 링크를 열고 'Chrome에 추가'를 누르세요.\n${STORE}?utm_source=phone&utm_medium=email&utm_campaign=send-to-pc`);
 const storeLink = (campaign) => `${STORE}?utm_source=guide&amp;utm_medium=article&amp;utm_campaign=${encodeURIComponent(campaign)}`;
 const fmtDate = (d) => { const [y, m, dd] = d.split("-"); return `${y}년 ${Number(m)}월 ${Number(dd)}일`; };
 const ORG = { "@type": "Organization", "@id": `${SITE}/#org`, name: "its-a-trap", url: `${SITE}/`, email: "contact@ys-ware.com", logo: `${SITE}/icon.png`, sameAs: [STORE] };
@@ -229,6 +232,7 @@ ${html}
   <aside class="install">
     <p><strong>its-a-trap</strong>은 Gmail과 네이버 메일에서 메일을 열면 보낸 도메인이 그 기관의 공식 도메인인지, 언제 생겼는지 확인해 위험·의심·이상 없음으로 알려 주는 크롬 확장입니다. 판정과 신고는 무료입니다.</p>
     <p><a class="btn" href="${storeLink(p.campaign)}">크롬에 추가하기</a> <a class="link" href="/">어떻게 동작하는지 보기</a></p>
+    <p class="on-phone fine">크롬 확장은 PC에서만 설치됩니다. <a href="${SEND_TO_PC}">설치 링크를 내 메일로 보내기</a></p>
   </aside>
   ${others.length ? `<section class="related" aria-labelledby="more"><h2 id="more">다른 글</h2>
     <ul class="posts">${others.map((o) => `<li><a href="/guide/${o.slug}"><h3>${esc(o.title)}</h3><p>${esc(o.description)}</p></a></li>`).join("")}</ul></section>` : ""}
