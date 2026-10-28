@@ -1,0 +1,104 @@
+/* Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4
+ * 2026-10-17 붙여넣기 검사(/check) — 사이트 감정서 체계(tokens.css·home.css의 머리·버튼·도장·바닥)를 그대로 쓴다.
+ * design read: 폰으로 들어와 문자를 붙여 넣는 사람. 입력칸 하나 → 도장 하나 → 대표번호 하나. 한 칸 짜임.
+ * 결과는 감정서처럼 굵은 먹줄 아래 도장과 원장 줄. 대표번호는 화면에서 가장 큰 글자(전화 걸기 링크).
+ * 상자는 누를 수 있는 것(입력칸)에만. 결과 안에 상자를 겹치지 않는다. 움직임 없음. */
+
+/* home.css가 버튼·도장에 display를 줘서 hidden 속성이 먹지 않는다. 이 화면은 hidden으로 보이고 숨긴다 */
+[hidden] { display: none !important; }
+
+.check { max-width: 40rem; padding-top: var(--space-2xl); padding-bottom: var(--space-3xl); }
+.check h1 {
+  font-size: var(--text-2xl); line-height: 1.3; font-weight: 800;
+  letter-spacing: -0.015em; margin: 0 0 var(--space-2xs);
+  overflow-wrap: anywhere; min-width: 0;
+}
+.lede { color: var(--ink-2); margin: 0 0 var(--space-lg); }
+
+/* ---- 입력 ---- */
+.entry textarea {
+  display: block; width: 100%; min-height: 10rem; resize: vertical;
+  font: inherit; font-size: max(16px, var(--text-base)); line-height: 1.6;
+  color: var(--ink); background: var(--paper);
+  border: 1.5px solid var(--ink); border-radius: var(--radius-xs);
+  padding: var(--space-sm);
+}
+.entry textarea::placeholder { color: var(--ink-2); }
+.entry textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.entry-actions { display: flex; gap: var(--space-sm); margin: var(--space-sm) 0 var(--space-xs); }
+.entry-actions .btn { flex: 1 1 auto; text-align: center; }
+.entry-note { font-size: var(--text-sm); color: var(--ink-2); margin: 0 0 var(--space-2xs); min-height: 0; }
+.entry-note:empty { display: none; }
+
+/* home.css의 .btn·.btn-line은 a용이다. button에 쓸 때 빠지는 것만 채운다 */
+button.btn, button.btn-line { font-family: inherit; cursor: pointer; }
+button.btn-line { background: transparent; }
+button.btn-line:hover { background: var(--accent); }
+button.btn:focus-visible, button.btn-line:focus-visible, .text-btn:focus-visible {
+  outline: 2px solid var(--focus); outline-offset: 2px;
+}
+button.btn:disabled, button.btn-line:disabled { opacity: 0.5; cursor: default; transform: none; }
+.text-btn {
+  font: inherit; color: var(--accent); background: none; border: 0; padding: 0;
+  text-decoration: underline; text-underline-offset: 3px; cursor: pointer; white-space: nowrap;
+}
+.text-btn:hover { color: var(--accent-hover); }
+
+/* ---- 결과 — 굵은 먹줄 아래 도장, 원장 줄 ---- */
+.result { margin-top: var(--space-xl); border-top: 2px solid var(--ink); }
+.verdict h2 {
+  font-size: var(--text-lg); line-height: 1.5; font-weight: 800;
+  margin: 0; padding: var(--space-md) 0;
+}
+.verdict h2:focus { outline: none; }
+.verdict h2:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.verdict .stamp { font-size: 0.875rem; padding: 2px 9px; vertical-align: 2px; }
+
+.reasons { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.reasons li { padding: var(--space-xs) 0; border-bottom: 1px solid var(--rule); font-size: 0.9375rem; line-height: 1.65; }
+.reasons:empty { display: none; }
+
+.official, .report { padding: var(--space-md) 0; border-bottom: 1px solid var(--rule); }
+.official h3, .report h3 { font-size: var(--text-base); margin: 0 0 var(--space-2xs); }
+.official-phone { margin: 0; }
+.official-phone a {
+  font-family: var(--font-mono); font-weight: 800; font-variant-numeric: tabular-nums;
+  /* 화면에서 가장 큰 글자. --text-domain은 폰에서 24px까지 줄어 제목과 비슷해진다 */
+  font-size: clamp(2.25rem, 1.6rem + 2.6vw, 2.75rem); line-height: 1.2; letter-spacing: -0.02em;
+  color: var(--ink); text-decoration: none; white-space: nowrap;
+}
+.official-phone a:hover { color: var(--accent); }
+.official-phone a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.official-site { margin: var(--space-2xs) 0 0; font-size: var(--text-sm); color: var(--ink-2); }
+.official-site:empty { display: none; }
+.official-site .mono { font-family: var(--font-mono); color: var(--ink); }
+
+.report ul { list-style: none; margin: 0; padding: 0; }
+.report li { padding: var(--space-2xs) 0; font-size: 0.9375rem; }
+.report small { display: block; font-size: var(--text-sm); color: var(--ink-2); }
+.report a { font-family: var(--font-mono); font-weight: 800; font-variant-numeric: tabular-nums; margin-right: var(--space-xs); white-space: nowrap; }
+
+.result-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm) var(--space-lg); margin: var(--space-md) 0 var(--space-xs); }
+/* 옆 버튼(.btn-line, text-sm)과 같은 크기로. 크면 "다시 검사"가 "결과 보내기"보다 앞서 보인다 */
+.result-actions .text-btn { font-size: var(--text-sm); font-weight: 700; }
+.fine { font-size: var(--text-sm); color: var(--ink-2); margin: 0; }
+
+/* ---- 더 쓰는 법 — 원장 세 칸 ---- */
+.more { margin-top: var(--space-xl); border-top: 2px solid var(--ink); }
+.more > div { padding: var(--space-md) 0; border-bottom: 1px solid var(--rule); }
+.more h2 { font-size: var(--text-base); margin: 0 0 var(--space-2xs); }
+.more p { font-size: 0.9375rem; margin: 0 0 var(--space-xs); }
+.more p:last-child { margin-bottom: 0; }
+.more p:has(> button[hidden]) { display: none; }
+.more ul { margin: 0; padding-left: 1.2em; font-size: 0.9375rem; }
+.more li { margin: var(--space-2xs) 0; }
+
+.limits { margin: var(--space-lg) 0 0; font-size: var(--text-sm); color: var(--ink-2); }
+
+@media (max-width: 420px) {
+  .check { padding-top: var(--space-lg); }
+  .entry-actions .btn { width: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  button.btn, button.btn-line { transition: none; }
+}
