@@ -172,12 +172,13 @@ function head({ title, description, path, type = "website", jsonld, published, u
 const nav = (campaign) => `<header class="nav">
   <a class="wordmark" href="/"><img src="/icon.png" alt="" width="28" height="28">its-a-trap</a>
   <nav class="nav-links" aria-label="사이트">
+    <a href="/check">문자 확인</a>
     <a href="/guide">가이드</a>
     <a class="btn-line" href="${storeLink(campaign)}">크롬에 추가</a>
   </nav>
 </header>`;
 const foot = `<footer class="foot">
-  <p><a href="/">its-a-trap 소개</a> · <a href="/guide">가이드</a> · <a href="/privacy">개인정보 처리방침</a> · <a href="/support">지원</a> · <a href="mailto:contact@ys-ware.com">contact@ys-ware.com</a></p>
+  <p><a href="/">its-a-trap 소개</a> · <a href="/check">사기 문자 확인</a> · <a href="/guide">가이드</a> · <a href="/privacy">개인정보 처리방침</a> · <a href="/support">지원</a> · <a href="mailto:contact@ys-ware.com">contact@ys-ware.com</a></p>
   <p>its-a-trap은 글에 나온 기관이나 회사와 제휴하지 않았습니다.</p>
 </footer>`;
 
@@ -231,6 +232,7 @@ ${html}
   ${sources.length ? `<section class="sources" aria-labelledby="src"><h2 id="src">출처</h2><ol>${sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener">${esc(s.title || s.url)}</a>${s.date ? ` · ${esc(s.date)}` : ""}</li>`).join("")}</ol></section>` : ""}
   <aside class="install">
     <p><strong>its-a-trap</strong>은 Gmail과 네이버 메일에서 메일을 열면 보낸 도메인이 그 기관의 공식 도메인인지, 언제 생겼는지 확인해 위험·의심·이상 없음으로 알려 주는 크롬 확장입니다. 판정과 신고는 무료입니다.</p>
+    <p>받은 문자나 카톡은 <a class="link" href="/check">사기 문자 확인</a>에 붙여 넣으면 폰에서 바로 검사합니다.</p>
     <p><a class="btn" href="${storeLink(p.campaign)}">크롬에 추가하기</a> <a class="link" href="/">어떻게 동작하는지 보기</a></p>
     <p class="on-phone fine">크롬 확장은 PC에서만 설치됩니다. <a href="${SEND_TO_PC}">설치 링크를 내 메일로 보내기</a></p>
   </aside>
@@ -286,6 +288,7 @@ const lastmod = (f) => (git("status", "--porcelain", "--", f) ? today : git("log
 const newest = posts.reduce((m, p) => (p.updated > m ? p.updated : m), "");
 const urls = [
   { loc: "/", lastmod: lastmod("index.html") },
+  { loc: "/check", lastmod: lastmod("check/index.html") },
   ...(posts.length ? [{ loc: "/guide", lastmod: newest }] : []),
   ...posts.map((p) => ({ loc: `/guide/${p.slug}`, lastmod: p.updated })),
   { loc: "/privacy", lastmod: lastmod("privacy/index.html") },

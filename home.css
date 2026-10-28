@@ -92,6 +92,12 @@ h3 { font-size: var(--text-base); line-height: 1.5; font-weight: 700; margin: 0 
 .hero .lede { max-width: 30em; }
 .closer { font-weight: 700; }
 .fine { font-size: var(--text-sm); color: var(--ink-2); line-height: 1.65; }
+/* 폰·태블릿 크롬은 확장을 못 깐다. 첫 화면 버튼을 터치 기기에서는 문자 확인으로 바꾼다 */
+.only-touch { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .only-pc { display: none; }
+  .only-touch { display: inline-block; }
+}
 .cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm) var(--space-lg); margin: var(--space-xl) 0 var(--space-md); }
 /* 손가락으로 누르는 기기(휴대폰·태블릿)에서만 — 확장을 못 까는 곳이라 PC로 링크를 넘기게 한다 */
 .on-phone { display: none; }
@@ -322,6 +328,10 @@ figure img { box-shadow: var(--shot-shadow); }
   .compare > div { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
   .story-prose, .check-groups, .cases, .asks-grid { grid-template-columns: minmax(0, 1fr); }
   .cases li:nth-child(2) { border-top: 1px solid var(--rule); }
+}
+/* 폰 크롬은 확장을 못 깐다. 좁은 화면 머리에서는 설치 버튼 대신 문자 확인·가이드만 둔다 */
+@media (max-width: 480px) {
+  .nav-links > .btn-line { display: none; }
 }
 @media (max-width: 420px) {
   .facts dl { grid-template-columns: minmax(0, 1fr); }
