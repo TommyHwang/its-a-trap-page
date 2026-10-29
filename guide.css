@@ -47,6 +47,8 @@
 .sources ol { margin: 0; padding-left: 1.3em; font-size: var(--text-sm); color: var(--ink-2); }
 .sources li { margin: var(--space-2xs) 0; }
 
+.quick { margin: 0 0 var(--space-lg); padding: var(--space-sm) var(--space-md); border-left: 4px solid var(--accent); background: var(--paper-2, transparent); font-size: var(--text-sm); line-height: 1.65; }
+
 .install {
   margin-top: var(--space-2xl); padding: var(--space-lg) 0 0;
   border-top: 2px solid var(--ink);
