@@ -223,6 +223,7 @@ ${nav(p.campaign)}
   <nav class="crumbs" aria-label="현재 위치"><a href="/">its-a-trap</a> › <a href="/guide">가이드</a></nav>
   <h1>${esc(p.title)}</h1>
   <p class="meta"><time datetime="${p.published}">${fmtDate(p.published)}</time> 작성${p.updated !== p.published ? ` · <time datetime="${p.updated}">${fmtDate(p.updated)}</time> 고침` : ""} · its-a-trap 운영자</p>
+  <p class="quick">지금 받은 메일이나 문자가 수상하면 <a class="link" href="/check?utm_source=guide&amp;utm_medium=article&amp;utm_campaign=${encodeURIComponent(p.campaign)}">여기에 붙여 넣어 바로 검사</a>하세요. 글을 다 읽지 않아도 됩니다. 메일함에서 자동으로 보려면 <a class="link" href="${storeLink(p.campaign)}">PC 크롬에 확장 추가</a>.</p>
   ${toc.length > 2 ? `<nav class="toc" aria-label="목차"><p>이 글의 순서</p><ol>${toc.map((t) => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join("")}</ol></nav>` : ""}
   <div class="prose">
 ${html}
