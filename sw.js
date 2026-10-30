@@ -6,7 +6,7 @@
       가로채 query를 뗀 /check를 받아 온다. 문자 내용이 서버 접근 기록에 남지
       않게 하려는 것이다. 주소창의 query는 페이지 스크립트가 읽고 지운다.
 
-   빌드 산출물이다(scripts/build-web.mjs가 5b79b29c6d을 채운다). */
+   빌드 산출물이다(scripts/build-web.mjs가 a2003dd848을 채운다). */
 
 const CACHE = "iat-check-__VERSION__";
 const SHELL = ["/check", "/check/check.css", "/check/check.js", "/tokens.css", "/home.css", "/fonts/pretendard.css", "/icon.png"];
