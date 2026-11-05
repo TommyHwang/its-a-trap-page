@@ -59,6 +59,16 @@
 <h2 id="이미-링크를-눌렀거나-돈을-보냈다면">이미 링크를 눌렀거나 돈을 보냈다면?</h2>
 <ul><li><strong>돈을 보냈다면</strong> 바로 112에 신고하세요. 사건 접수와 악성 앱 차단, 지급정지를 함께 처리합니다. 금융감독원 1332에서도 금융사기 상담과 지급정지를 받습니다.</li><li><strong>앱을 깔았거나 OTP, 인증번호를 알려 줬다면</strong> 112나 금융감독원 1332에 연락하세요.</li><li><strong>사기 문자나 전화번호를 제보하려면</strong> 1394에 거세요. 경찰청 전기통신금융사기 통합대응단이 24시간 피해 상담과 전화번호 제보를 받습니다.</li><li><strong>사칭 메일을 신고하려면</strong> 한국인터넷진흥원 불법스팸대응센터 118에 거세요. 24시간 받고, ARS에서 4번을 누르면 됩니다.</li></ul>
 <h2 id="its-a-trap에서-이런-메일을-열면-어떻게-보이나요">its-a-trap에서 이런 메일을 열면 어떻게 보이나요?</h2>
+<figure class="demo">
+  <img src="/img/card-danger-bank.webp" width="368" height="822" loading="lazy"
+    alt="위험 판정 카드. 보낸 주소 notice@shinhan-reward.example. 기관 사칭 여부 위험(shinhan.com 이름을 품은 다른 도메인), 본문 수법 위험(OTP·보안카드 정보 요구). 신한은행 대표번호 1599-8000에 직접 걸어 확인하라는 안내, 신고·상담 118·112·1332">
+  <figcaption>
+    <p>은행을 사칭한 예시 메일을 열었을 때 뜨는 카드입니다. 이 글의 메일을 열면 무엇이 보이는지는 아래에 적었습니다.</p>
+    <p><a class="btn" href="https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk?utm_source=guide&amp;utm_medium=article&amp;utm_campaign=bank-leak-mail">크롬에 추가하기</a></p>
+    <p class="fine">판정과 신고는 무료입니다. PC 크롬으로 연 Gmail과 네이버 메일에서 동작합니다.</p>
+    <p class="on-phone fine">크롬 확장은 PC에서만 설치됩니다. <a href="mailto:?subject=its-a-trap%20%EC%84%A4%EC%B9%98%20%EB%A7%81%ED%81%AC&amp;body=PC%20%ED%81%AC%EB%A1%AC%EC%97%90%EC%84%9C%20%EC%95%84%EB%9E%98%20%EB%A7%81%ED%81%AC%EB%A5%BC%20%EC%97%B4%EA%B3%A0%20'Chrome%EC%97%90%20%EC%B6%94%EA%B0%80'%EB%A5%BC%20%EB%88%84%EB%A5%B4%EC%84%B8%EC%9A%94.%0Ahttps%3A%2F%2Fchromewebstore.google.com%2Fdetail%2Fkliegjogabngpjjcmjigngfjjpegacjk%3Futm_source%3Dphone%26utm_medium%3Demail%26utm_campaign%3Dsend-to-pc">설치 링크를 내 메일로 보내기</a></p>
+  </figcaption>
+</figure>
 <p>its-a-trap은 PC 크롬에서 Gmail이나 네이버 메일을 열면 보낸 도메인을 확인해 위험, 의심, 이상 없음으로 알려 주는 확장입니다. 받은 문자는 <a href="/check">사기 문자 확인</a>에 붙여 넣으면 폰에서 바로 검사합니다. 전화는 보지 못하니 위의 순서대로 직접 확인하세요.</p>
 <p>0.5.2 버전부터 은행과 카드사를 비롯한 금융권 43곳의 공식 도메인을 대조합니다. 메일에서는 이런 줄이 나옵니다.</p>
 <ul><li>보낸 사람 이름에 은행 이름이 있거나 본문이 &quot;신한은행입니다&quot;처럼 은행이라고 소개하는데 주소가 그 은행 도메인이 아니면 &quot;기관 사칭 여부&quot; 줄에 &quot;신한은행 자칭 — 공식 도메인 아님&quot;처럼 나옵니다. shinhan-reward.example처럼 은행 도메인 이름을 품은 주소는 &quot;공식 도메인 이름을 품고 있습니다&quot;로 나옵니다.</li><li>카드에 &quot;메일에 적힌 번호 말고 신한은행 대표번호 1599-8000에 직접 걸어 확인하세요.&quot;처럼 대표번호 줄이 나옵니다. 번호는 위 표와 같습니다.</li><li>본문이 요구하는 행동에 따라 아래 줄이 나옵니다. &quot;은행은 OTP 번호를 묻지 않습니다&quot; 같은 경고 문장은 요구로 세지 않습니다.</li><li>&quot;안전계좌&quot; 이체를 요구합니다</li><li>OTP나 보안카드 정보를 요구합니다</li><li>대출 상환금 입금을 요구합니다</li><li>유출 피해 조회·보상 미끼입니다</li><li>본문에 .apk 같은 파일 이름이 적혀 있거나 링크가 그런 파일로 이어지면 &quot;본문 수법&quot; 줄에 위험한 형식의 첨부 파일로 나옵니다.</li><li>위험으로 나온 메일에 안전계좌, OTP, 대출 상환금 요구가 있으면 신고·상담 번호 118과 함께 112와 1332가 나옵니다.</li></ul>

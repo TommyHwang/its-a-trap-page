@@ -197,10 +197,24 @@ function readPosts() {
   }).sort((a, b) => b.published.localeCompare(a.published));
 }
 
+const demo = (campaign) => `<figure class="demo">
+  <img src="/img/card-danger-bank.webp" width="368" height="822" loading="lazy"
+    alt="위험 판정 카드. 보낸 주소 notice@shinhan-reward.example. 기관 사칭 여부 위험(shinhan.com 이름을 품은 다른 도메인), 본문 수법 위험(OTP·보안카드 정보 요구). 신한은행 대표번호 1599-8000에 직접 걸어 확인하라는 안내, 신고·상담 118·112·1332">
+  <figcaption>
+    <p>은행을 사칭한 예시 메일을 열었을 때 뜨는 카드입니다. 이 글의 메일을 열면 무엇이 보이는지는 아래에 적었습니다.</p>
+    <p><a class="btn" href="${storeLink(campaign)}">크롬에 추가하기</a></p>
+    <p class="fine">판정과 신고는 무료입니다. PC 크롬으로 연 Gmail과 네이버 메일에서 동작합니다.</p>
+    <p class="on-phone fine">크롬 확장은 PC에서만 설치됩니다. <a href="${SEND_TO_PC}">설치 링크를 내 메일로 보내기</a></p>
+  </figcaption>
+</figure>`;
+
 function postPage(p, posts) {
   const others = posts.filter((o) => o.slug !== p.slug).slice(0, 3);
   const path = `/guide/${p.slug}`;
-  const { html, toc } = markdown(p.body);
+  const { html: body, toc } = markdown(p.body);
+  /* "its-a-trap에서 … 어떻게 보이나요?" 절 머리 바로 아래에 실제 카드 그림과 설치 단추.
+     글에 확장 화면이 하나도 없어 읽는 사람이 무엇을 설치하는지 못 봤다(클릭 27 → 설치 0, 11-05) */
+  const html = body.replace(/(<h2 id="its-a-trap[^"]*">[^<]*<\/h2>)/, (h) => `${h}\n${demo(p.campaign)}`);
   const faq = Array.isArray(p.faq) ? p.faq.filter((x) => x.q && x.a) : [];
   const sources = Array.isArray(p.sources) ? p.sources.filter((s) => s.url) : [];
   const jsonld = { "@context": "https://schema.org", "@graph": [
