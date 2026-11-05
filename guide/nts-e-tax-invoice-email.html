@@ -62,6 +62,16 @@
 <h2 id="첨부-파일을-이미-열었다면">첨부 파일을 이미 열었다면?</h2>
 <ul><li><strong>파일을 열었거나 매크로를 허용했다면</strong> 한국인터넷진흥원 118 상담센터에 연락하세요. 해킹과 바이러스 상담을 365일 24시간 무료로 받습니다(<a href="https://www.mt.co.kr/tech/2026/01/18/2026011810015435018" rel="noopener">머니투데이, 2026-01-18</a>).</li><li><strong>열린 화면에 메일 아이디와 비밀번호를 넣었다면</strong> 그 메일 비밀번호부터 바꾸세요. 국세청은 메일에서 포털 로그인을 요구하면 가짜 화면이니 로그인하지 말고 포털 비밀번호를 바꾸라고 권했습니다(<a href="https://www.korea.kr/news/policyNewsView.do?newsId=148924642" rel="noopener">정책브리핑, 2024-01-10</a>). 같은 비밀번호를 쓰는 다른 서비스가 있으면 그것도 바꾸세요.</li><li><strong>돈이나 정보 피해가 생겼다면</strong> 경찰청 긴급신고 112나 민원상담 182에 신고하세요(<a href="https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2207&amp;bbsId=1011&amp;nttSn=1348670" rel="noopener">국세청 공지, 2026-02-09</a>).</li></ul>
 <h2 id="its-a-trap에서-이-메일을-열면-어떻게-보이나요">its-a-trap에서 이 메일을 열면 어떻게 보이나요?</h2>
+<figure class="demo">
+  <img src="/img/card-danger-bank.webp" width="368" height="822" loading="lazy"
+    alt="위험 판정 카드. 보낸 주소 notice@shinhan-reward.example. 기관 사칭 여부 위험(shinhan.com 이름을 품은 다른 도메인), 본문 수법 위험(OTP·보안카드 정보 요구). 신한은행 대표번호 1599-8000에 직접 걸어 확인하라는 안내, 신고·상담 118·112·1332">
+  <figcaption>
+    <p>은행을 사칭한 예시 메일을 열었을 때 뜨는 카드입니다. 이 글의 메일을 열면 무엇이 보이는지는 아래에 적었습니다.</p>
+    <p><a class="btn" href="https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk?utm_source=guide&amp;utm_medium=article&amp;utm_campaign=nts-invoice-mail">크롬에 추가하기</a></p>
+    <p class="fine">판정과 신고는 무료입니다. PC 크롬으로 연 Gmail과 네이버 메일에서 동작합니다.</p>
+    <p class="on-phone fine">크롬 확장은 PC에서만 설치됩니다. <a href="mailto:?subject=its-a-trap%20%EC%84%A4%EC%B9%98%20%EB%A7%81%ED%81%AC&amp;body=PC%20%ED%81%AC%EB%A1%AC%EC%97%90%EC%84%9C%20%EC%95%84%EB%9E%98%20%EB%A7%81%ED%81%AC%EB%A5%BC%20%EC%97%B4%EA%B3%A0%20'Chrome%EC%97%90%20%EC%B6%94%EA%B0%80'%EB%A5%BC%20%EB%88%84%EB%A5%B4%EC%84%B8%EC%9A%94.%0Ahttps%3A%2F%2Fchromewebstore.google.com%2Fdetail%2Fkliegjogabngpjjcmjigngfjjpegacjk%3Futm_source%3Dphone%26utm_medium%3Demail%26utm_campaign%3Dsend-to-pc">설치 링크를 내 메일로 보내기</a></p>
+  </figcaption>
+</figure>
 <p>its-a-trap은 Gmail이나 네이버 메일에서 메일을 열면 보낸 도메인을 확인해 위험, 의심, 이상 없음으로 알려 주는 크롬 확장입니다. 국세청은 nts.go.kr과 hometax.go.kr 두 도메인으로 확장의 기관 목록에 들어 있습니다.</p>
 <ul><li>이름은 국세청인데 @ 뒤가 tianyi.co.kr처럼 엉뚱한 도메인이면 의심으로 나옵니다. &quot;기관 사칭 여부&quot; 줄에는 &quot;국세청 자칭, 공식 도메인 아님&quot;이라고 나옵니다. 도메인이 생긴 지 며칠 안 됐거나 위조 방지 설정이 없으면 위험으로 올라갑니다.</li><li>hometax1.co.kr이나 hometax.kr처럼 진짜 주소를 흉내 낸 도메인은 위험으로 나옵니다. &quot;기관 사칭 여부&quot; 줄에 &quot;hometax.go.kr와 비슷한 다른 도메인&quot;이라고 나오고, 신고·상담 번호 118도 함께 나옵니다.</li><li>카드에는 국세청 대표번호 044-204-2200이 나옵니다. 세금 상담은 126으로 거는 게 빠릅니다.</li><li>메일 본문에 NTS_eTaxInvoice.html이나 NTS_eTax.zip 같은 파일 이름이 적혀 있으면 &quot;본문 수법&quot; 줄에 &quot;위험한 형식의 첨부 파일&quot;이 나옵니다. .ppt 파일은 이 목록에 없어서 잡지 않습니다.</li><li>보낸 주소를 hometaxadmin@hometax.go.kr로 위조한 메일은 메일 서비스에 따라 다르게 보입니다. Gmail에서는 Gmail이 남긴 발신 확인 결과를 읽어 &quot;발신 인증&quot; 줄이 위험으로 나오고 카드는 의심이 됩니다. 네이버 메일에서는 그 결과를 볼 수 없어 이상 없음으로 나옵니다. 그래서 주소가 hometax.go.kr이면 판정과 상관없이 홈택스에서 직접 조회해 보세요.</li><li>사람 이름으로 보내고 제목에만 &quot;세금계산서&quot;라고 쓴 메일은 국세청을 내세우지 않았으니 기관 대조를 하지 않습니다. 이때는 도메인 나이와 위조 방지 설정 줄이 근거가 됩니다.</li></ul>
 <p>이상 없음은 안전하다는 보증이 아닙니다. 판정이 틀렸다면 <a href="https://its-a-trap.app/support">지원 페이지</a>로 알려 주세요. 보낸 주소의 @ 뒤 도메인과 화면에 나온 판정만 적어 주시면 됩니다. its-a-trap은 국세청과 관계가 없습니다.</p>
