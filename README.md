@@ -14,6 +14,8 @@
 - [국세청 전자세금계산서 사칭 메일](https://its-a-trap.app/guide/nts-e-tax-invoice-email)
 - [건강보험공단 '보험료 면제·급여정지 안내' 사칭 메일](https://its-a-trap.app/guide/nhis-impersonation-email)
 - [경찰서 '출석요구서' 사칭 메일](https://its-a-trap.app/guide/police-summons-email)
+- [방미통위 이름의 유튜브 채널 사칭 메일](https://its-a-trap.app/guide/kmcc-youtuber-impersonation-email)
+- ['중수청 수사관'·공소청 사칭 전화와 문자](https://its-a-trap.app/guide/sci-prosecution-service-impersonation)
 
 전체 목록은 [its-a-trap.app/guide](https://its-a-trap.app/guide)에 있어요.
 

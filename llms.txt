@@ -10,6 +10,7 @@
 - [크롬 웹스토어](https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk)
 
 ## 가이드 글
+- ['중수청 수사관입니다' 전화와 문자, 진짜인지 확인하는 법](https://its-a-trap.app/guide/sci-prosecution-service-impersonation): 검찰청이 없어지고 2026년 10월 2일 공소청과 중대범죄수사청(중수청)이 생기자 닷새 만에 '중수청 수사관'을 사칭한 전화가 보도됐습니다. 압수한 통장에 내 명의 계좌가 있다며 방문 조사를 요구했습니다. 끊고 확인하는 순서와 두 기관의 대표번호를 정리했습니다.
 - [방미통위 이름으로 온 유튜브 채널 메일, 진짜인지 확인하는 법](https://its-a-trap.app/guide/kmcc-youtuber-impersonation-email): 방송미디어통신위원회 이름으로 '채널 댓글에 불법 링크가 있다, 수신 확인 답신을 보내라'는 메일이 유튜버에게 돌았습니다. 방미통위는 유튜브 크리에이터 지원센터를 운영하지 않고 공식 메일은 korea.kr을 쓴다고 밝혔습니다. 답신하기 전에 보는 순서를 정리했습니다.
 - [경찰 '출석요구서' 메일, 진짜인지 확인하는 법](https://its-a-trap.app/guide/police-summons-email): 경찰은 특수한 경우를 빼면 수사 중에 메일로 출석요구서를 보내지 않는다고 밝혔습니다. 첨부 파일과 '통지서 열람' 버튼은 누르지 말고 경찰 민원상담 182에 물어보세요. 공식 경찰관 메일 주소는 police.go.kr로 끝납니다.
 - [건강보험공단 '보험료 면제·급여정지 안내' 메일, 진짜인지 확인하는 법](https://its-a-trap.app/guide/nhis-impersonation-email): 건보공단은 보험료 면제나 급여정지를 이메일로 안내하지 않는다고 밝혔습니다. 메일 속 버튼은 누르지 말고 공단 앱 건강보험25시나 nhis.or.kr에 직접 들어가 확인하세요. 공단 고객센터는 1577-1000입니다.
