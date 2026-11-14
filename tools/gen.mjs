@@ -166,6 +166,8 @@ function head({ title, description, path, type = "website", jsonld, published, u
 <link rel="stylesheet" href="/tokens.css">
 <link rel="stylesheet" href="/home.css">
 <link rel="stylesheet" href="/guide.css">
+<script src="/stats.js" defer></script>
+<script src="/_vercel/insights/script.js" defer></script>
 <script type="application/ld+json">${JSON.stringify(jsonld).replace(/</g, "\\u003c")}</script>
 </head>`;
 }
