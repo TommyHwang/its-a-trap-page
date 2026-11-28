@@ -10,6 +10,7 @@
 - [크롬 웹스토어](https://chromewebstore.google.com/detail/kliegjogabngpjjcmjigngfjjpegacjk)
 
 ## 가이드 글
+- ['상한가 종목 무료 공개' 오픈채팅방 문자, 들어가도 될까요? 리딩방 사기 확인법](https://its-a-trap.app/guide/stock-pick-openchat-smishing): 금융감독원은 링크로 단체 채팅방에 들어오게 하고 가짜 주식거래 앱 설치를 부추기는 불법 리딩방 사기를 경고했습니다. 상한가 종목 문자나 연말 지원금 문자를 받았을 때 확인하는 순서와 대처를 정리했습니다.
 - [금리 인하·한도 상향 문자에 카톡 상담 ID가 붙어 있다면: 은행이 보낸 걸까요?](https://its-a-trap.app/guide/loan-rate-limit-kakao-smishing): 경찰이 2026년 10월 금융기관 사칭(금리·대출 한도 조정을 내세운 접근)과 개인정보 유출 보상 사칭을 경계하라며 경보 문자를 보낸다고 밝혔습니다. 금리 인하·한도 상향 문자를 받았을 때 확인하는 순서와 대처를 정리했습니다.
 - [연말정산 미리보기 문자, 국세청이 보낸 걸까요? 링크 누르기 전에 확인하는 법](https://its-a-trap.app/guide/yearend-tax-nts-smishing): 국세청은 연말정산 맞춤형 안내를 카카오톡과 네이버 전자문서로 보내고 문자나 전화로는 안내하지 않는다고 밝혔습니다. 환급금·간소화 인증 문자를 받았을 때 확인하는 순서와 눌렀을 때 대처를 정리했습니다.
 - [모바일 청첩장·부고 문자, 링크 누르기 전에 확인하는 법](https://its-a-trap.app/guide/wedding-funeral-invitation-smishing): 청첩장·부고장을 흉내 낸 스미싱 문자는 지인 사칭형으로 2024년에만 36만 건이 넘게 잡혔습니다. 누르기 전에 볼 세 가지, 이미 눌렀을 때의 순서, 보호나라 확인 방법을 정리했습니다.
